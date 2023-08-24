@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('menu', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('menu');
+            $table->enum('waktu_makan', ['breakfast','lunch', 'dinner']);
+            $table->date('tanggal');
+            $table->foreignId('paket_id')->nullable()
+                ->constrained('paket')
+                ->onUpdate('cascade')
+                ->nullOnDelete();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('menu');
     }
 };

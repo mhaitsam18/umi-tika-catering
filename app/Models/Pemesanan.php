@@ -6,26 +6,25 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Member extends Model
+class Pemesanan extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $table = 'member';
+    protected $table = 'pemesanan';
     protected $guarded = [
         'id'
     ];
 
     protected $with = [
-        'user'
+        'member'
     ];
 
-    public function user()
+    public function member()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(Member::class, 'member_id');
     }
-
-    public function pemesanan()
+    public function item()
     {
-        return $this->hasMany(Pemesanan::class);
+        return $this->hasMany(Item::class);
     }
 }
