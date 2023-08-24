@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>FoodBoard | Documentation v.1.0</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/images/favicon.png">
+    <link href='https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700' rel='stylesheet' type='text/css'>
+    <!-- FontAwesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="" crossorigin="anonymous"></script>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="assets/plugins/prism/prism.css">
+
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
+
+</head>
+
+<body class="body-coral">
+    <div class="page-wrapper">
+        <!-- ******Header****** -->
+        <header id="header" class="header">
+            <div class="container">
+                <div class="branding">
+                    <h1 class="logo">
+                        <a href="https://ultimatewebsolutions.net/foodboard/intro/" target="_blank">
+                            <img class="img-fluid" src="assets/images/logo.png" alt="Foodboard Home" />
+                        </a>
+                    </h1>
+
+                </div>
+                <!--//branding-->
+
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">Food delivery dashboard</li>
+                    <li class="breadcrumb-item active">v.1.0</li>
+                </ol>
+
+            </div>
+            <!--//container-->
+        </header>
+        <!--//header-->
+        <div class="doc-wrapper">
+            <div class="container">
+                <div id="doc-header" class="doc-header text-center">
+                    <h1 class="doc-title"><i class="icon fas fa-book"></i> Documentation v.1.0</h1>
+                    <div class="meta"><i class="far fa-clock"></i> Created: 28-10-2021</div>
+                </div>
+                <!--//doc-header-->
+                <div class="doc-body row">
+                    <div class="doc-content col-md-9 col-12 order-1">
+                        <div class="content-inner">
+                            <section id="start" class="doc-section">
+                                <h2 class="section-title">Start</h2>
+                                <div class="section-block">
+                                    <ul class="list">
+                                        <li>Last update: 28-10-2021</li>
+                                        <li>By: Ultimate Websolutions</li>
+                                        <li>Web: <a href="https://ultimatewebsolutions.net/foodboard/intro" target="_blank">FoodBoard</a></li>
+                                        <li>Mail: <a href="mailto:support@ultimatewebsolutions.net">support@ultimatewebsolutions.net</a></li>
+                                    </ul>
+                                    <p>
+                                        Thank you for purchasing<strong> FoodBoard</strong>.<br /><br />
+                                        We hope you will find all answers to your questions in this Documentation. <br />
+                                        However, if you still need support, please, go to your envato profile and
+                                        <a href="https://themeforest.net/user/ultimatewebsolutions#contact" target="_blank">use this form</a>
+                                        to send a message or drop us a line to mail address shown above.
+                                        We are happy to answer shortly.<br /><br /> We appreciate, if you will have few minutes for rating. Please log in to your themeforest account and leave a rating
+                                        in your <a href="https://themeforest.net/downloads" target="_blank">Downloads</a> section. Many thanks!
+                                    </p>
+                                </div>
+                            </section>
+                            <!--//doc-section-->
+                            <section id="overview" class="doc-section">
+                                <h2 class="section-title">Overview</h2>
+                                <div class="section-block">
+                                    <p>
+                                        <strong>FoodBoard</strong> is a responsive food ordering wizard system with integrated cost calculator.
+                                        With its PHP engine FoodBoard is able to handle online payments via Stripe. The order requests are summarized and sent by nicely formatted email notifications.
+                                    </p>
+                                    <ul class="list">
+                                        <li>html <i class="fas fa-long-arrow-alt-right"></i> main folder
+                                            <ul>
+                                                <li>css <i class="fas fa-long-arrow-alt-right"></i> folder of stylesheets</li>
+                                                <li>img <i class="fas fa-long-arrow-alt-right"></i> folder of images</li>
+                                                <li>js <i class="fas fa-long-arrow-alt-right"></i> folder of JavaScripts</li>
+                                                <li>pdf <i class="fas fa-long-arrow-alt-right"></i> folder of pdf files</li>
+                                                <li>pay-with-card-online-delivery <i class="fas fa-long-arrow-alt-right"></i> folder of PHP scripts related to online payment</li>
+                                                <li>pay-with-cash-on-delivery <i class="fas fa-long-arrow-alt-right"></i> folder of PHP scripts related to cash on delivery payment</li>
+                                                <li>vendor <i class="fas fa-long-arrow-alt-right"></i> folder of vendor styles and scripts</li>
+                                            </ul>
+                                        </li>
+                                        <li>documentation</li>
+                                    </ul>
+                                </div>
+                                <div class="callout-block callout-warning">
+                                    <div class="icon-holder">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    </div>
+                                    <!--//icon-holder-->
+                                    <div class="content">
+                                        <h4 class="callout-title">NOTE</h4>
+                                        <p>
+                                            The code has to be uploaded to server in order to use full functionality.
+                                        </p>
+                                    </div>
+                                    <!--//content-->
+                                </div>
+                                <!--//callout-block-->
+                            </section>
+                            <!--//doc-section-->
+                            <section id="html-structure" class="doc-section">
+                                <h2 class="section-title">HTML structure</h2>
+                                <div class="section-block">
+                                    <p>The main HTML structure is divided by separate areas shown below.</p>
+                                    <img class="img-fluid" src="assets/images/html-structure-1.png" alt="HTML structure" /><br /><br />
+                                    <p>Modal popup HTML structure in order page is shown below.</p>
+                                    <img class="img-fluid" src="assets/images/html-structure-2.png" alt="Modal windows HTML structure" />
+                                </div>
+                                <!--//section-block-->
+                                <div id="html-structure-setup" class="section-block">
+                                    <h6>HTML structure setup</h6>
+                                    <p>If we setup our own titles and prices on the <strong>order page</strong> we have to focus on the following areas. </p>
+                                    <p><strong>1. Set filters</strong></p>
+                                    <img class="img-fluid" src="assets/images/html-structure-setup-1.png" alt="Filter setup" /><br /><br />
+                                    <p><strong>2. Set grid items</strong></p>
+                                    <img class="img-fluid" src="assets/images/html-structure-setup-2.png" alt="Grid item setup" /><br /><br />
+                                    <p><strong>3. Set delivery fee</strong></p>
+                                    <img class="img-fluid" src="assets/images/html-structure-setup-3.png" alt="Delivery fee setup" /><br /><br />
+                                    <p><strong>4. Set qty max. limit in modal warning</strong></p>
+                                    <img class="img-fluid" src="assets/images/html-structure-setup-4.png" alt="Qty max. limit setup in modal warning" /><br /><br />
+                                    <p><strong>5. Set modal options</strong></p>
+                                    <img class="img-fluid" src="assets/images/html-structure-setup-5.png" alt="Qty max. limit setup in modal warning" />
+                                </div>
+                                <!--//section-block-->
+                                <div id="html-form" class="section-block">
+                                    <h6>Allow special characters on the HTML form</h6>
+                                    <p>The input on the HTML form can be managed by patterns. You can allow or block special characters.
+                                        The following code can be found in index html files at the end of the input fields.
+                                        If you need special characters add them like in example below or simply delete the whole <strong>data-parsley-pattern="^[A-Za-z\s]+$"</strong> element.
+                                        Put or remove the <strong>"required"</strong> keyword at the end of the input tags if you want to manage the input field to be or not to be required.
+                                    </p>
+                                    <img class="img-fluid" src="assets/images/spec-chars.png" alt="Special characetrs on the form" /><br /><br />
+                                    <p>Examples:</p>
+                                    <ul class="list">
+                                        <li>
+                                            <strong>data-parsley-pattern="^[ÁáÉéÍíÓóÖöŐőÚúÜüŰűA-Za-z\s]+$" required</strong> <i class="fas fa-long-arrow-alt-right"></i> input WITH special characters
+                                        </li>
+                                        <li><strong>data-parsley-pattern="^[A-Za-z\s]+$" required</strong> <i class="fas fa-long-arrow-alt-right"></i> input WITHOUT special characters</li>
+                                        <li><strong>data-parsley-pattern="^[A-Za-z\s]+$"</strong> <i class="fas fa-long-arrow-alt-right"></i> this input is NOT required input</li>
+                                        <li><strong>data-parsley-pattern="^[0-9]+$"</strong> <i class="fas fa-long-arrow-alt-right"></i> this is phone number NOT starting with "+"</li>
+                                    </ul>
+                                </div>
+                                <!--//section-block-->
+                            </section>
+                            <!--//doc-section-->
+                            <section id="css-structure" class="doc-section">
+                                <h2 class="section-title">CSS structure</h2>
+                                <div class="section-block">
+                                    <p>CSS code which is responsible for the look and feel can be found in <strong>css</strong> folder called <strong>style.css</strong>.
+                                    <p>The structure is the following.</p>
+                                    <div class="code-block">
+                                        <pre><code class="language-css">/* ======= FoodBoard Style Structure =======
+
+01. PRELOADER
+02. GENERAL
+03. MODAL ALERT
+04. MODAL DIALOG
+05. CART MESSAGES
+06. HEADER
+07. SUB HEAEDR
+08. FOOTER
+09. HERO
+10. SERVICES
+11. BANNER
+12. FAQ
+13. MAP
+14. CONTAINERS
+15. ORDER ITEMS
+16. FORM ELEMENTS
+17. ORDER SUMMARY
+18. BACK TO TOP
+19. RESPONSIVE
+
+================================= */</code></pre>
+                                    </div>
+                                    <!--//code-block-->
+                                </div>
+                                <!--//section-block-->
+                                <div id="change-color" class="section-block">
+                                    <h6>Change Color</h6>
+                                    <p>If you want to use another dominant color, open <strong>css/style.css</strong> with an editor and chnage all hexa code: <strong>#f25c04</strong> to your favorite
+                                        one.</p>
+                                </div>
+                                <!--//section-block-->
+                                <div id="change-mobile-menu-color" class="section-block">
+                                    <h6>Change Mobile Menu Color</h6>
+                                    <p>If you want to change the mobile menu color (from dark to light) the following styles and scripts have to be changed.</p>
+                                    <p>1. At the very bottom of <strong>vendor/dmenu/css/menu.css</strong> use the code below</p>
+                                    <div class="code-block">
+                                        <pre><code class="language-css">
+/* Use this when using WHITE mobile menu */
+ul.mm-listview li a {
+    color: #333 !important;
+    display: block;
+}
+</code></pre>
+                                    </div>
+                                    <!--//code-block-->
+                                    <p>2. In <strong>js/scripts.js and scripts-2-3-4.js</strong> change "theme-dark" to <strong>"theme-white"</strong> at MOBILE MENU section.</p>
+                                    <div class="code-block">
+                                        <pre><code class="language-js">// =====================================================
+//      MOBILE MENU
+// =====================================================
+var $menu = $("nav#menu").mmenu({
+    "extensions": ["pagedim-black", "theme-dark"], // "theme-dark" can be changed to: "theme-white"
+    counters: true,
+    keyboardNavigation: {
+        enable: true,
+        enhance: true
+    },
+    navbar: {
+        title: 'MENU'
+    },
+    navbars: [{ position: 'bottom', content: ['<a href="#">© 2021 Costy</a>'] }]
+},
+</code></pre>
+                                    </div>
+                                    <!--//code-block-->
+                                </div>
+                                <!--//section-block-->
+                            </section>
+                            <!--//doc-section-->
+                            <section id="js-structure" class="doc-section">
+                                <h2 class="section-title">JavaScript structure</h2>
+                                <div class="section-block">
+                                    <p>JavaScript code which is responsible for functionality can be found in <strong>js</strong> folder.</p>
+                                    <ul class="list">
+                                        <li>scripts.js <i class="fas fa-long-arrow-alt-right"></i> main scripts</li>
+                                        <li>map.js <i class="fas fa-long-arrow-alt-right"></i> scripts related to map</li>
+                                    </ul>
+                                </div>
+                                <div id="setup-currency-js" class="section-block">
+                                    <h6>Setup currency in js</h6>
+                                    <p>If you would like to change the currency the followings should be updated in js</p>
+                                    <img class="img-fluid" src="assets/images/js-structure-1.png" alt="Special characetrs on the form" /><br /><br />
+                                    <img class="img-fluid" src="assets/images/js-structure-2.png" alt="Special characetrs on the form" /><br /><br />
+                                    <img class="img-fluid" src="assets/images/js-structure-3.png" alt="Special characetrs on the form" />
+                                </div>
+                                <!--//section-block-->
+                                <div id="setup-modal-js" class="section-block">
+                                    <h6>Setup modal in js</h6>
+                                    <ul class="list">
+                                        <li><strong>fixedContentPos: false</strong> <i class="fas fa-long-arrow-alt-right"></i> if true: modal bg content is FIXED</li>
+                                        <li><strong>closeOnBgClick: false</strong> <i class="fas fa-long-arrow-alt-right"></i> if true: modal can be closed even when clicking in the background</li>
+                                    </ul>
+                                    <img class="img-fluid" src="assets/images/js-structure-4.png" alt="Special characetrs on the form" />
+                                </div>
+                                <!--//section-block-->
+                                <div id="setup-cart-options-js" class="section-block">
+                                    <h6>Setup cart options in js</h6>
+                                    <ul class="list">
+                                        <li><strong>maxQty</strong> <i class="fas fa-long-arrow-alt-right"></i> maximum quantity from an item allowed in the cart</li>
+                                        <li><strong>deliveryFee</strong> <i class="fas fa-long-arrow-alt-right"></i> cost of the delivery should be set in js</li>
+                                    </ul>
+                                    <img class="img-fluid" src="assets/images/js-structure-5.png" alt="Special characetrs on the form" />
+                                </div>
+                                <!--//section-block-->
+                                <div id="setup-map" class="section-block">
+                                    <h6>Setup Map</h6>
+                                    <p>In order to use the map it is required to have Google Maps API KEY. Visit the following link to get started if you do not have an API KEY yet:
+                                        <a href="https://developers.google.com/maps/documentation/javascript/get-api-key#key" target="_blank">Get an API KEY</a>.
+                                        Some additional info how to <a href="http://thegrue.org/google-map-javascript-api-key/" target="_blank">create an API KEY</a>.
+                                        After you get the key set it in the following line in contacts.html at the very bottom of the page.
+                                    </p>
+                                    <div class="code-block">
+                                        <pre><code class="language-html"><!-- Map -->
+&lt;script src=&quot;https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&quot;&gt;&lt;/script&gt;
+</code></pre>
+                                    </div>
+                                    <!--//code-block-->
+                                    <div class="callout-block callout-warning">
+                                        <div class="icon-holder">
+                                            <i class="fas fa-exclamation-triangle"></i>
+                                        </div>
+                                        <!--//icon-holder-->
+                                        <div class="content">
+                                            <h4 class="callout-title">NOTE</h4>
+                                            <p>
+                                                If you set your API KEY and the map does not load locally: upload the code to your server.
+                                            </p>
+                                        </div>
+                                        <!--//content-->
+                                    </div>
+                                    <!--//callout-block-->
+                                    <p>
+                                        The map infobox details and your desired latitude and longitude map coordinates can be modified in <strong>js/map.js</strong> file in the following lines.
+                                        To find the proper coordinates visit: <a href=" https://www.latlong.net/" target="_blank">latlong.net</a>
+                                    </p>
+                                    <div class="code-block">
+                                        <pre><code class="language-js">
+markersData = {
+    'Marker': [
+        {
+            logoUrl: 'img/map/infoimg.png',
+            address: 'New York',
+            title: 'Costy Office',
+            mail: 'info@yourdomain.com',
+            phone: '+3630123456789',
+            latitude: 40.697149,
+            longitude: -74.259865
+        }
+    ]
+};
+...
+center: new google.maps.LatLng(40.697149, -74.259865),
+</code></pre>
+                                    </div>
+                                    <!--//code-block-->
+                                </div>
+                                <!--//section-block-->
+                            </section>
+                            <!--//doc-section-->
+                            <section id="php-structure" class="doc-section">
+                                <h2 class="section-title">PHP structure</h2>
+                                <div class="section-block">
+                                    <p>PHP code which is responsible for processing orders can be found in folders below.</p>
+                                    <ul class="list">
+                                        <li><strong>pay-with-card-online-delivery</strong> <i class="fas fa-long-arrow-alt-right"></i> this part handles online payment via Stripe and order
+                                            confirmation</li>
+                                        <li><strong>pay-with-cash-on-delivery</strong> <i class="fas fa-long-arrow-alt-right"></i> this part handles only the order confirmation</li>
+                                    </ul>
+                                    <p>
+                                        The needed config setup is the same in php files above.
+                                    </p>
+                                </div>
+                                <!--//section-block-->
+                                <div id="create-stripe-account" class="section-block">
+                                    <h6>Create Stripe account</h6>
+                                    <p>
+                                        In order to accept online payments via Stripe we should create a <a href="https://stripe.com/" target="_blank">Stripe account</a>.
+                                        Once the account is created and user is logged in the default mode is Test mode.
+                                    </p>
+                                    <img class="img-fluid" src="assets/images/stripe-1.png" alt="Stripe" /><br /><br />
+                                    <p>
+                                        After everything is set up below and application is working <a href="https://stripe.com/docs/account/manage" target="_blank">the test account can be
+                                            activated</a>.
+                                    </p>
+                                </div>
+                                <!--//section-block-->
+                                <div id="create-stripe-api-key" class="section-block">
+                                    <h6>Create Stripe API key</h6>
+                                    <p>
+                                        In order to use the Stripe payment gateway <a href="https://www.youtube.com/watch?v=ioqH_O82E_M" target="_blank">API key should be created.</a>
+                                        It is placed in <strong>Developers > API keys</strong> under Stripe account.
+                                    </p>
+                                    <img class="img-fluid" src="assets/images/stripe-2.png" alt="Stripe" />
+                                </div>
+                                <!--//section-block-->
+                                <div id="create-stripe-shipping-rate" class="section-block">
+                                    <h6>Create Stripe shipping rate</h6>
+                                    <p>
+                                        In order to have have delivery fee shipping rate should be created. It is placed in <strong>Products > Shipping rates</strong> under Stripe account.
+                                    </p>
+                                    <img class="img-fluid" src="assets/images/stripe-3.png" alt="Stripe" />
+                                </div>
+                                <!--//section-block-->
+                                <div id="setup-stripe-countries" class="section-block">
+                                    <h6>Setup Stripe countries to be shown at payment</h6>
+                                    <p>
+                                        You can define countries (shipping address collection) which will be shown at your Stripe online payment gateway.
+                                        <a href="https://www.nationsonline.org/oneworld/country_code_list.htm" target="_blank">List and abbreviations of countries can be found here.</a>
+                                    </p>
+                                    <ul class="list">
+                                        <li><strong>pay-with-card-online-delivery</strong> \ Service \ StripeService.php</li>
+                                    </ul>
+                                    <img class="img-fluid" src="assets/images/shipping-address-collection.png" alt="Stripe Countries" />
+                                </div>
+                                <div id="setup-stripe-checkout-language" class="section-block">
+                                    <h6>Setup Stripe checkout language</h6>
+                                    <p>
+                                        You can force a desired language to Stripe checkout. Otherwise (if locale is set to "auto") it will detect the browser's language and will render Stripe
+                                        checkout page on detected language.
+                                        <a href="https://stripe.com/docs/api/checkout/sessions/create#create_checkout_session-locale" target="_blank">Language abbreviations used by Stripe.</a>
+                                    </p>
+                                    <ul class="list">
+                                        <li><strong>pay-with-card-online-delivery</strong> \ Service \ StripeService.php</li>
+                                    </ul>
+                                    <img class="img-fluid" src="assets/images/stripe-checkout-language.png" alt="Stripe Checkout Language" />
+                                </div>
+                                <!--//section-block-->
+                                <div id="setup-config" class="section-block">
+                                    <h6>Setup config</h6>
+                                    <p>
+                                        Config file is located in:
+                                    </p>
+                                    <ul class="list">
+                                        <li><strong>pay-with-card-online-delivery</strong> \ Config \ Config.php</li>
+                                        <li><strong>pay-with-cash-on-delivery</strong> \ Config \ Config.php</li>
+                                    </ul>
+                                    <p>
+                                        You have to take care about the followings:
+                                    </p>
+                                    <img class="img-fluid" src="assets/images/config.png" alt="Config" />
+                                </div>
+                                <!--//section-block-->
+                                <div id="setup-confirmation-email-templates" class="section-block">
+                                    <h6>Setup confirmation email templates</h6>
+                                    <p>
+                                        Confirmation email templates are placed in the folders below.
+                                    </p>
+                                    <ul class="list">
+                                        <li><strong>pay-with-card-online-delivery</strong> \ resource \ mail</li>
+                                        <li><strong>pay-with-cash-on-delivery</strong> \ resource \ mail</li>
+                                    </ul>
+                                    <p>
+                                        The followings can be modified:
+                                    </p>
+                                    <img class="img-fluid" src="assets/images/confirmation-template.png" alt="Config" />
+                                </div>
+                                <!--//section-block-->
+                            </section>
+                            <!--//doc-section-->
+                            <section id="sources-credits-updates-section" class="doc-section">
+                                <h2 class="section-title">Sources and Credits</h2>
+                                <div class="section-block">
+                                    <p>
+                                        We've used the following images, icons or other files, sources as listed.
+                                    </p>
+                                    <ul class="list">
+                                        <li><a href="https://github.com/gdsmith/jquery.easing" target="_blank">Easing</a></li>
+                                        <li><a href="https://pryley.github.io/float-labels.js/" target="_blank">Float Labels</a></li>
+                                        <li><a href="https://fontawesome.com/" target="_blank">Font Awesome</a></li>
+                                        <li><a href="http://parsleyjs.org/" target="_blank">Form Validation</a></li>
+                                        <li><a href="https://fonts.googleapis.com/css?family=Jost:300,400,500,600,700" target="_blank">Google Font Jost</a></li>
+                                        <li><a href="https://jonsuh.com/hamburgers" target="_blank">Hamburgers</a></li>
+                                        <li><a href="https://icomoon.io/" target="_blank">Icon Fonts</a></li>
+                                        <li><a href="https://isotope.metafizzy.co/" target="_blank">Isotope filtering</a></li>
+                                        <li><a href="https://github.com/kflorence/jquery-wizard/" target="_blank">jQuery wizard</a></li>
+                                        <li><a href="https://dimsemenov.com/plugins/magnific-popup/" target="_blank">Magnific Popup</a></li>
+                                        <li><a href="https://mmenujs.com/" target="_blank">MMenu</a></li>
+                                        <li><a href="https://hernansartorio.com/jquery-nice-select/" target="_blank">Nice Select</a></li>
+                                        <li><a href="https://github.com/PHPMailer/PHPMailer" target="_blank">PHP Mailer</a></li>
+                                        <li><a href="https://github.com/price-format/Jquery-Price-Format" target="_blank">Price Format</a></li>
+                                        <li><a href="https://scrollrevealjs.org/" target="_blank">Scroll Reveal</a></li>
+                                        <li><a href="https://github.com/stripe/stripe-php" target="_blank">Stripe PHP</a></li>
+                                        <li><a href="https://github.com/WeCodePixels/theia-sticky-sidebar" target="_blank">Thicky Sidebar</a></li>
+                                    </ul>
+                                </div>
+                                <h2 class="section-title">Updates</h2>
+                                <div class="section-block">
+                                    <p>Version 1.0 <i class="fas fa-long-arrow-alt-right"></i> 28-10-2021</p>
+                                    <ul class="list">
+                                        <li>Initial release</li>
+                                    </ul>
+                                </div>
+                            </section>
+                            <!--//doc-section-->
+                        </div>
+                        <!--//content-inner-->
+                    </div>
+                    <!--//doc-content-->
+                    <div class="doc-sidebar col-md-3 col-12 order-0 d-none d-md-flex">
+                        <div id="doc-nav" class="doc-nav">
+
+                            <nav id="doc-menu" class="nav doc-menu flex-column sticky">
+                                <a class="nav-link scrollto" href="#header">Start</a>
+                                <a class="nav-link scrollto" href="#overview">Overview</a>
+                                <a class="nav-link scrollto" href="#html-structure">HTML structure</a>
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#html-structure-setup">HTML structure setup</a>
+                                    <a class="nav-link scrollto" href="#html-form">Allow special characters on the form</a>
+                                </nav>
+                                <!--//nav-->
+                                <a class="nav-link scrollto" href="#css-structure">CSS structure</a>
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#change-color">Change color</a>
+                                    <a class="nav-link scrollto" href="#change-mobile-menu-color">Change mobile menu color</a>
+                                </nav>
+                                <!--//nav-->
+                                <a class="nav-link scrollto" href="#js-structure">JavaScript structure</a>
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#setup-currency-js">Setup currency</a>
+                                    <a class="nav-link scrollto" href="#setup-modal-js">Setup modal</a>
+                                    <a class="nav-link scrollto" href="#setup-cart-options-js">Setup cart options</a>
+                                    <a class="nav-link scrollto" href="#setup-map">Setup map</a>
+                                </nav>
+                                <!--//nav-->
+                                <a class="nav-link scrollto" href="#php-structure">PHP structure</a>
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#create-stripe-account">Create Stripe account</a>
+                                    <a class="nav-link scrollto" href="#create-stripe-api-key">Create Stripe API key</a>
+                                    <a class="nav-link scrollto" href="#create-stripe-shipping-rate">Create Stripe shipping rate</a>
+                                    <a class="nav-link scrollto" href="#setup-stripe-countries">Setup Stripe countries</a>
+                                    <a class="nav-link scrollto" href="#setup-stripe-checkout-language">Setup Stripe checkout language</a>
+                                    <a class="nav-link scrollto" href="#setup-config">Setup config</a>
+                                    <a class="nav-link scrollto" href="#setup-confirmation-email-templates">Setup confirmation email templates</a>
+                                </nav>
+                                <!--//nav-->
+                                <a class="nav-link scrollto" href="#sources-credits-updates-section">Sources, credits and updates</a>
+                            </nav>
+                            <!--//doc-menu-->
+
+                        </div>
+                    </div>
+                    <!--//doc-sidebar-->
+                </div>
+                <!--//doc-body-->
+            </div>
+            <!--//container-->
+        </div>
+        <!--//doc-wrapper-->
+
+    </div>
+    <!--//page-wrapper-->
+
+    <footer id="footer" class="footer text-center">
+        <div class="container">
+            <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can buy the commercial license via our website: themes.3rdwavemedia.com */-->
+            <small class="copyright">
+                &copy; Documentation designed by <a href="https://themes.3rdwavemedia.com/" target="_blank">themes.3rdwavemedia.com</a>.
+                Content by <a href="https://themeforest.net/user/ultimatewebsolutions" target="_blank">UWS</a>.
+            </small>
+
+        </div>
+        <!--//container-->
+    </footer>
+    <!--//footer-->
+
+
+    <!-- Main Javascript -->
+    <script src="assets/plugins/jquery-3.3.1.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/plugins/prism/prism.min.js"></script>
+    <script src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>
+    <script src="assets/plugins/stickyfill/stickyfill.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
