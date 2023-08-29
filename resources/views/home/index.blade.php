@@ -4,8 +4,8 @@
     <div class="hero-home bg-mockup hero-bottom-border">
         <div class="content">
             <h1 class="animated-element">Umi Tika Catering</h1>
-            <p class="animated-element">Food order wizard with online payment.</p>
-            <a href="pay-with-card-online/" class="btn-1 medium animated-element">Get Started</a>
+            <p class="animated-element">Pesan Catering hari ini atau besok lapar.</p>
+            <a href="/catering" class="btn-1 medium animated-element">Yuk Order</a>
             <a href="#orderFood" class="mouse-frame nice-scroll">
                 <div class="mouse"></div>
             </a>
@@ -52,7 +52,7 @@
                     <div class="textbox">
                         <small>Umi Tika Delivery</small>
                         <h2>Umi Tika Catering</h2>
-                        <p>Pesan Catering sekarang! dari pada lapar besok.</p>
+                        <p>Pesan Catering sekarang! dari pada besok lapar.</p>
                         <a href="faq.html" class="btn-1">FAQ</a>
                     </div>
                 </div>
