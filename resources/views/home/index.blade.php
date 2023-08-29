@@ -52,7 +52,7 @@
                     <div class="textbox">
                         <small>Umi Tika Delivery</small>
                         <h2>Umi Tika Catering</h2>
-                        <p>Food order wizard with online payment.</p>
+                        <p>Pesan Catering sekarang! dari pada lapar besok.</p>
                         <a href="faq.html" class="btn-1">FAQ</a>
                     </div>
                 </div>

@@ -3091,3 +3091,20 @@ label.cbx {
 		width: 100px;
 	}
 }
+
+
+.button-a {
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0px;
+    color: #F25C04;
+}
+
+.badge-a {
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}

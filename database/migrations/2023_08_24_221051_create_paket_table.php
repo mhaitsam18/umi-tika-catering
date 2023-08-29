@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('paket', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_paket');
-            $table->float('harga');
+            $table->string('nama_paket')->nullable();
+            $table->float('harga')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

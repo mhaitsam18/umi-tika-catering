@@ -23,7 +23,7 @@ class AuthController extends Controller
         } else if(auth()->user()->role == "admin") {
             return redirect('/admin/index');
         } else if(auth()->user()->role == "member"){
-            return redirect('/member/index');
+            return redirect('/');
         } else{
             Auth::logout();
             request()->session()->invalidate();
@@ -77,7 +77,7 @@ class AuthController extends Controller
     public function authenticate(Request $request): RedirectResponse
     {
         $credentials = $request->validate([
-            'username' => ['required'],
+            'email' => ['required'],
             'password' => ['required'],
         ]);
 
@@ -91,7 +91,7 @@ class AuthController extends Controller
                     $member = Member::where('user_id', auth()->user()->id)->first();
                     $request->session()->put('member', $member);
                     $request->session()->put('member_id', $member->id);
-                    return redirect()->intended('/member/index');
+                    return redirect()->intended('/');
                     break;
                 default:
                     return back()->with('loginError', 'Akun Anda tidak memiliki otoritas apapun, Hubungi Admin terkait');
@@ -100,7 +100,7 @@ class AuthController extends Controller
             }
         }
 
-        return back()->with('loginError', 'Username atau Password Salah');
+        return back()->with('loginError', 'Email atau Password Salah');
     }
 
     public function updatePhoto(Request $request, User $user)

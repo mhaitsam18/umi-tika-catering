@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('menu', function (Blueprint $table) {
             $table->id();
-            $table->string('menu');
-            $table->enum('waktu_makan', ['breakfast','lunch', 'dinner']);
-            $table->date('tanggal');
+            $table->string('menu')->nullable();
+            $table->enum('waktu_makan', ['breakfast','lunch', 'dinner'])->nullable();
+            $table->date('tanggal')->nullable();
             $table->foreignId('paket_id')->nullable()
                 ->constrained('paket')
                 ->onUpdate('cascade')
                 ->nullOnDelete();
+            $table->string('gambar')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

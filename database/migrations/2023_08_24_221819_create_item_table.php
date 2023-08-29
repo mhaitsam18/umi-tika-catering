@@ -21,9 +21,9 @@ return new class extends Migration
                 ->constrained('menu')
                 ->onUpdate('cascade')
                 ->nullOnDelete();
-            $table->integer('jumlah');
-            $table->float('harga_per_item');
-            $table->float('harga_total');
+            $table->integer('jumlah')->nullable();
+            $table->float('harga_per_item')->nullable();
+            $table->float('harga_total')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

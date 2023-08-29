@@ -17,8 +17,8 @@ return new class extends Migration
                 ->constrained('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->string('alamat_kirim');
-            $table->string('nomor_wa');
+            $table->string('alamat_kirim')->nullable();
+            $table->string('nomor_wa')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

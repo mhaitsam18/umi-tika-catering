@@ -11,19 +11,31 @@
         <div class="row">
             <div class="col-lg-3 col-6">
                 <div id="logo">
-                    <h1><a href="https://ultimatewebsolutions.net/foodboard/" title="UmiTikaCatering">Umi Tika Catering</a></h1>
+                    <h1><a href="/" title="UmiTikaCatering">Umi Tika Catering</a></h1>
                 </div>
             </div>
             <div class="col-lg-9 col-6">
                 <ul id="menuIcons">
-                    <li><a href="#"><i class="icon icon-support"></i></a></li>
+                    @guest
+                        <li><a href="/login" title="login"><i class="icon icon-enter"></i></a></li>
+                    @endguest
+                    @auth
                     <li><a href="#"><i class="icon icon-shopping-cart2"></i></a></li>
+
+                    <li>
+                        <form action="/logout" method="post">
+                            @csrf
+                            <button type="submit" title="logout" class="button-a"><i class="icon icon-exit"></i></button>
+                        </form>
+                    </li>
+                    @endauth
                 </ul>
                 <!-- Menu -->
                 <nav id="menu" class="main-menu">
                     <ul>
-                        <li><span><a href="https://ultimatewebsolutions.net/foodboard/">Home</a></span></li>
-                        <li>
+                        <li><span><a href="/">Beranda</a></span></li>
+                        <li><span><a href="/catering">Catering</a></span></li>
+                        {{-- <li>
                             <span><a href="#">Order <i class="fa fa-chevron-down"></i></a></span>
                             <ul>
                                 <li>
@@ -41,9 +53,9 @@
                                     </ul>
                                 </li>
                             </ul>
-                        </li>
-                        <li><span><a href="faq.html">Faq</a></span></li>
-                        <li><span><a href="contacts.html">Contacts</a></span></li>
+                        </li> --}}
+                        <li><span><a href="/tentang-kami">Tentang Kami</a></span></li>
+                        <li><span><a href="/testimoni">Testimoni</a></span></li>
                     </ul>
                 </nav>
                 <!-- Menu End -->

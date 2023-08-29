@@ -17,10 +17,10 @@ return new class extends Migration
                 ->constrained('member')
                 ->onUpdate('cascade')
                 ->nullOnDelete();
-            $table->decimal('diskon');
-            $table->float('total_harga');
-            $table->float('harga_diskon');
-            $table->enum('status', ['proses', 'selesai', 'batal']);
+            $table->decimal('diskon')->nullable();
+            $table->float('total_harga')->nullable();
+            $table->float('harga_diskon')->nullable();
+            $table->enum('status', ['proses', 'selesai', 'batal'])->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
