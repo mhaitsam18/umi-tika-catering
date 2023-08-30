@@ -83,6 +83,8 @@
 							<li><i class="icon icon-phone2"></i><a href="tel:+3630123456789" class="footer-link">Nomor WA: +3630123456789</a></li>
 						</ul>
 					</div>
+                    <div class="col-md-3"></div>
+                    <div class="col-md-3"></div>
 					<div class="col-md-2">
 						<h5 class="footer-heading">Temukan Kami</h5>
 						<ul class="list-unstyled social-links">

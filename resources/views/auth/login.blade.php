@@ -64,7 +64,7 @@
                                     @enderror
                                 </div>
                                 <div class="">
-                                    <button type="submit" class="btn btn-primary me-2 mb-2 mb-md-0 text-white">Login</button>
+                                    <button type="submit" class="btn-2 float-right">Login</button>
                                     {{-- <button type="button"
                                         class="btn btn-outline-primary btn-icon-text mb-2 mb-md-0">
                                         <i class="btn-icon-prepend" data-feather="twitter"></i>

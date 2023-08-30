@@ -53,7 +53,7 @@
                         <small>Umi Tika Delivery</small>
                         <h2>Umi Tika Catering</h2>
                         <p>Pesan Catering sekarang! dari pada besok lapar.</p>
-                        <a href="faq.html" class="btn-1">FAQ</a>
+                        <a href="/catering" class="btn-1">Yuk Order</a>
                     </div>
                 </div>
             </div>
