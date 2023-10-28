@@ -1,9 +1,10 @@
 <?php
 
-
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,13 +44,11 @@ Route::middleware('auth')->group(function () {
     Route::put('update-photo/{user}', [AuthController::class, 'updatePhoto'])->name('admin.psikolog-update-foto');
     Route::middleware('admin')->group(function () {
         Route::prefix('admin')->group(function () {
-
-
+            Route::get('index', [AdminController::class, 'index'])->name('admin.index');
         });
     });
     Route::middleware('member')->group(function () {
         Route::prefix('member')->group(function () {
-
         });
     });
 });

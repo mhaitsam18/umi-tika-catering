@@ -24,8 +24,10 @@
                                 background-image: url({{ asset('storage/menu/menu-default.jpg') }});
                                 background-size: cover;
                                 background-position: center;
-                                width: 100%; /* Menggunakan 100% untuk lebar agar menjadi full width */
-                                height: 50vh; /* Menggunakan 100vh untuk tinggi agar mengisi tinggi viewport */
+                                width: 100%;
+                                /* Menggunakan 100% untuk lebar agar menjadi full width */
+                                height: 50vh;
+                                /* Menggunakan 100vh untuk tinggi agar mengisi tinggi viewport */
                             }
                         </style>
                         <div class="col-lg-6 custom-bg">
@@ -47,7 +49,8 @@
                                 @csrf
                                 <div class="mb-3 ">
                                     <label for="email" class="form-label">Email</label>
-                                    <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="email">
+                                    <input type="email" class="form-control @error('email') is-invalid @enderror"
+                                        id="email" name="email" placeholder="email">
                                     @error('email')
                                         <div class="text-danger fs-6">
                                             {{ $message }}
@@ -56,7 +59,9 @@
                                 </div>
                                 <div class="mb-3 ">
                                     <label for="password" class="form-label">Password</label>
-                                    <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" autocomplete="current-password" placeholder="Password">
+                                    <input type="password" class="form-control @error('password') is-invalid @enderror"
+                                        id="password" name="password" autocomplete="current-password"
+                                        placeholder="Password">
                                     @error('password')
                                         <div class="text-danger fs-6">
                                             {{ $message }}
