@@ -63,13 +63,17 @@
                                                         data-tanggal="{{ $menu->tanggal }}"
                                                         data-paket_id="{{ $menu->paket_id }}"
                                                         data-gambar="{{ $menu->gambar }}">Edit</a>
-                                                    <form action="/admin/menu/{{ $menu->id }}" method="post">
+
+                                                    <form action="/admin/menu/{{ $menu->id }}" method="post"
+                                                        class="d-inline-block">
                                                         @method('delete')
                                                         @csrf
                                                         <button type="submit"
-                                                            class="badge bg-danger d-inline-block ms-2 mb-1 badge-a tombol-hapus">Hapus</button>
+                                                            class="badge bg-danger d-inline-block ms-2 mb-1 badge-a tombol-hapus"
+                                                            style="border: none; cursor: pointer;">Hapus</button>
                                                     </form>
                                                 </td>
+
                                             </tr>
                                         @endforeach
                                     </tbody>
