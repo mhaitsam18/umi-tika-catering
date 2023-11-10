@@ -66,6 +66,9 @@ Route::middleware('auth')->group(function () {
             Route::resource('jadwal-menu', AdminMenuController::class)->parameters([
                 'jadwal-menu' => 'menu'
             ]);
+            Route::resource('menu', AdminMenuController::class)->parameters([
+                'menu' => 'menu'
+            ]);
             Route::get('/pemesanan-pembayaran', [AdminPemesananController::class, 'index'])->name('admin.pemesanan.index');
         });
     });

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Menu;
+use App\Models\Paket;
 use Illuminate\Http\Request;
 
 class AdminMenuController extends Controller
@@ -14,7 +15,9 @@ class AdminMenuController extends Controller
     {
         return view('admin.menu.index', [
             'title' => 'Umi Tika Catering | Jadwal Menu',
-            'page' => 'menu'
+            'page' => 'menu',
+            'menus' => Menu::orderBy('tanggal', 'desc')->get(),
+            'pakets' => Paket::all()
         ]);
     }
 

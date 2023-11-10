@@ -10,8 +10,15 @@
     </div>
 
     <div class="row">
-        <div class="col-12 col-xl-12 stretch-card">
-
+        <div class="col-12 col-xl-12 grid-margin stretch-card">
+            <div class="card overflow-hidden">
+                <div class="card-body">
+                    <div class="row align-items-start">
+                        <div class="col-md-12">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div> <!-- row -->
 @endsection
