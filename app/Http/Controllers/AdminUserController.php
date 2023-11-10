@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Member;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -22,7 +23,8 @@ class AdminUserController extends Controller
     {
         return view('admin.user.admin', [
             'title' => 'Umi Tika Catering | Data Admin',
-            'page' => 'admin'
+            'page' => 'admin',
+            'admins' => User::where('role', 'admin')->orderBy('name')->get()
         ]);
     }
 
@@ -33,7 +35,10 @@ class AdminUserController extends Controller
     {
         return view('admin.user.member', [
             'title' => 'Umi Tika Catering | Data Member',
-            'page' => 'member'
+            'page' => 'member',
+            'members' => Member::all()->sortBy(function ($member) {
+                return $member->user->name;
+            })
         ]);
     }
 

@@ -43,6 +43,7 @@
                                             <th class="pt-0">Tanggal</th>
                                             <th class="pt-0">Paket</th>
                                             <th class="pt-0">Gambar</th>
+                                            <th class="pt-0">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>

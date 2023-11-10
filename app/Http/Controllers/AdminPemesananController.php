@@ -14,7 +14,8 @@ class AdminPemesananController extends Controller
     {
         return view('admin.pemesanan.index', [
             'title' => 'Umi Tika Catering | Pemesanan dan Pembayaran',
-            'page' => 'pemesanan'
+            'page' => 'pemesanan',
+            'pemesanans' => Pemesanan::latest()->get()
         ]);
     }
 

@@ -14,7 +14,8 @@ class AdminPaketController extends Controller
     {
         return view('admin.paket.index', [
             'title' => 'Umi Tika Catering | Data Paket',
-            'page' => 'paket'
+            'page' => 'paket',
+            'pakets' => Paket::all()
         ]);
     }
 
