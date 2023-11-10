@@ -1,6 +1,10 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminMenuController;
+use App\Http\Controllers\AdminPaketController;
+use App\Http\Controllers\AdminPemesananController;
+use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\HomeController;
@@ -49,6 +53,20 @@ Route::middleware('auth')->group(function () {
     });
     Route::middleware('member')->group(function () {
         Route::prefix('member')->group(function () {
+        });
+    });
+    Route::middleware('admin')->group(function () {
+        Route::prefix('admin')->group(function () {
+            Route::get('/profile', [AdminController::class, 'profile'])->name('admin.profile');
+            Route::get('/admin', [AdminUserController::class, 'admin'])->name('admin.user.admin');
+            Route::get('/member', [AdminUserController::class, 'member'])->name('admin.user.member');
+            Route::resource('paket', AdminPaketController::class)->parameters([
+                'paket' => 'paket'
+            ]);
+            Route::resource('jadwal-menu', AdminMenuController::class)->parameters([
+                'jadwal-menu' => 'menu'
+            ]);
+            Route::get('/pemesanan-pembayaran', [AdminPemesananController::class, 'index'])->name('admin.pemesanan.index');
         });
     });
 });
