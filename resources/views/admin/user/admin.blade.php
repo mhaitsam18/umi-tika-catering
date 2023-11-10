@@ -1,5 +1,8 @@
 @extends('layouts.admin-main')
 @section('content')
+    @php
+        use Carbon\Carbon;
+    @endphp
     <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
         <div>
             <h4 class="mb-3 mb-md-0">{{ $title }}</h4>
@@ -21,9 +24,10 @@
                                 <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-                                <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                        data-feather="plus" class="icon-sm me-2"></i> <span class="">Tambah
-                                        Data</span></a>
+                                <a class="dropdown-item d-flex align-items-center" href="#" id="addButton"
+                                    data-bs-toggle="modal" data-bs-target="#editModal"><i data-feather="plus"
+                                        class="icon-sm me-2"></i> <span class="">Tambah
+                                        Admin</span></a>
                             </div>
                         </div>
                     </div>
@@ -34,22 +38,39 @@
                                     <thead>
                                         <tr>
                                             <th class="pt-0">#</th>
-                                            <th class="pt-0">Project Name</th>
-                                            <th class="pt-0">Start Date</th>
-                                            <th class="pt-0">Due Date</th>
-                                            <th class="pt-0">Status</th>
-                                            <th class="pt-0">Assign</th>
+                                            <th class="pt-0">Nama Lengkap</th>
+                                            <th class="pt-0">Email</th>
+                                            <th class="pt-0">Foto</th>
+                                            <th class="pt-0">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>NobleUI jQuery</td>
-                                            <td>01/01/2021</td>
-                                            <td>26/04/2021</td>
-                                            <td><span class="badge bg-danger">Released</span></td>
-                                            <td>Leonardo Payne</td>
-                                        </tr>
+                                        @foreach ($admins as $admin)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $admin->name }}</td>
+                                                <td>{{ $admin->email }}</td>
+                                                <td><img src="{{ asset('storage/' . $admin->image) }}" alt=""
+                                                        class="img-thumbnail"></td>
+                                                <td>
+                                                    <a href="#" class="badge bg-success d-inline-block editButton"
+                                                        data-bs-toggle="modal" data-bs-target="#editModal"
+                                                        data-id="{{ $admin->id }}" data-name="{{ $admin->name }}"
+                                                        data-email="{{ $admin->email }}"
+                                                        data-image="{{ $admin->image }}">Edit</a>
+
+                                                    <form action="/admin/admin/{{ $admin->id }}" method="post"
+                                                        class="d-inline-block">
+                                                        @method('delete')
+                                                        @csrf
+                                                        <button type="submit"
+                                                            class="badge bg-danger d-inline-block ms-2 mb-1 badge-a tombol-hapus"
+                                                            style="border: none; cursor: pointer;">Hapus</button>
+                                                    </form>
+                                                </td>
+
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -59,4 +80,134 @@
             </div>
         </div>
     </div> <!-- row -->
+@endsection
+
+@section('modal')
+    <!-- Modal -->
+    <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="addModalLabel">Tambah Admin</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="/admin/admin" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nama Lengkap</label>
+                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
+                                id="name" value="{{ old('name') }}">
+                            @error('name')
+                                <div class="text-danger fs-6">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
+                                id="email" value="{{ old('email') }}">
+                            @error('email')
+                                <div class="text-danger fs-6">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Foto</label>
+                            <input type="file" name="image" class="form-control @error('image') is-invalid @enderror"
+                                id="image" value="{{ old('image') }}">
+                            @error('image')
+                                <div class="text-danger fs-6">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="editModalLabel">Ubah Admin</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="/admin/admin/" method="post" enctype="multipart/form-data" id="formEdit">
+                    @csrf
+                    @method('put')
+                    <div class="modal-body">
+                        <input type="hidden" name="id" id="id" value="">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nama Lengkap</label>
+                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
+                                id="name" value="{{ old('name') }}">
+                            @error('name')
+                                <div class="text-danger fs-6">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" name="email"
+                                class="form-control @error('email') is-invalid @enderror" id="email"
+                                value="{{ old('email') }}">
+                            @error('email')
+                                <div class="text-danger fs-6">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Foto</label>
+                            <input type="file" name="image"
+                                class="form-control @error('image') is-invalid @enderror" id="image"
+                                value="{{ old('image') }}">
+                            @error('image')
+                                <div class="text-danger fs-6">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+@endsection
+
+@section('script')
+    {{-- <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script> --}}
+    <script>
+        $(document).on("click", ".editButton", function() {
+            var id = $(this).data('id');
+            $(".modal-body  #id").val(id);
+            $("#formEdit").attr("action", "/admin/admin/" + id);
+
+            var name = $(this).data('name');
+            $(".modal-body  #name").val(name);
+            var email = $(this).data('email');
+            $(".modal-body  #email").val(email);
+            var image = $(this).data('image');
+            $(".modal-body  #image").val(image);
+        });
+        $(document).on("click", "#addButton", function() {
+            $(".modal-body textarea").val(''); // Mengosongkan nilai pada elemen textarea
+            $(".modal-body input").val(''); // Mengosongkan nilai pada elemen input
+            $(".modal-body select").val(''); // Mengosongkan nilai pada elemen select option
+        });
+    </script>
 @endsection
