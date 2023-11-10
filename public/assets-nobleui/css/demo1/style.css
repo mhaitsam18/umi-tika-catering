@@ -45,6 +45,8 @@
   /* --bs-primary-rgb: 101, 113, 255; */
   --bs-primary-rgb: 242, 92, 4;
   --bs-primary-hover-rgb: 242, 92, 4;
+  --bs-primary-box-shadow-rgb: 237, 90, 4;
+  /* var(--bs-primary-box-shadow-rgb) */
   --bs-secondary-rgb: 121, 135, 161;
   --bs-success-rgb: 5, 163, 74;
   --bs-info-rgb: 102, 209, 209;
@@ -3126,7 +3128,7 @@ textarea.is-invalid.typeahead.tt-hint, .select2-container--default .select2-sear
   color: #fff;
   background-color: var(--bs-bg-primary);
   border-color: var(--bs-primary-hover);
-  box-shadow: 0 0 0 0.25rem rgba(124, 134, 255, 0.5);
+  box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-box-shadow-rgb), 0.5);
 }
 .btn-check:checked + .btn-primary, .wizard > .actions .btn-check:checked + a, div.tox .btn-check:checked + .tox-button:not(.tox-button--naked):not(.tox-button--secondary), .swal2-popup .swal2-actions .btn-check:checked + button.swal2-confirm, .fc .btn-check:checked + .fc-button-primary:not(:disabled).fc-button-active, .btn-check:active + .btn-primary, .wizard > .actions .btn-check:active + a, div.tox .btn-check:active + .tox-button:not(.tox-button--naked):not(.tox-button--secondary), .swal2-popup .swal2-actions .btn-check:active + button.swal2-confirm, .fc .btn-check:active + .fc-button-primary:not(:disabled).fc-button-active, .btn-primary:active, .wizard > .actions a:active, div.tox .tox-button:active:not(.tox-button--naked):not(.tox-button--secondary), .swal2-popup .swal2-actions button.swal2-confirm:active,
 .fc .fc-button-primary:active:not(:disabled), .btn-primary.active, .wizard > .actions a.active, div.tox .active.tox-button:not(.tox-button--naked):not(.tox-button--secondary), .swal2-popup .swal2-actions button.active.swal2-confirm, .fc .active.fc-button-primary.fc-button-active:not(:disabled), .show > .btn-primary.dropdown-toggle, .wizard > .actions .show > a.dropdown-toggle, div.tox .show > .dropdown-toggle.tox-button:not(.tox-button--naked):not(.tox-button--secondary), .swal2-popup .swal2-actions .show > button.dropdown-toggle.swal2-confirm, .fc .show > .dropdown-toggle.fc-button-primary.fc-button-active:not(:disabled) {
@@ -3136,7 +3138,7 @@ textarea.is-invalid.typeahead.tt-hint, .select2-container--default .select2-sear
 }
 .btn-check:checked + .btn-primary:focus, .wizard > .actions .btn-check:checked + a:focus, div.tox .btn-check:checked + .tox-button:focus:not(.tox-button--naked):not(.tox-button--secondary), .swal2-popup .swal2-actions .btn-check:checked + button.swal2-confirm:focus, .fc .btn-check:checked + .fc-button-primary.fc-button-active:focus:not(:disabled), .btn-check:active + .btn-primary:focus, .wizard > .actions .btn-check:active + a:focus, div.tox .btn-check:active + .tox-button:focus:not(.tox-button--naked):not(.tox-button--secondary), .swal2-popup .swal2-actions .btn-check:active + button.swal2-confirm:focus, .fc .btn-check:active + .fc-button-primary.fc-button-active:focus:not(:disabled), .btn-primary:active:focus, .wizard > .actions a:active:focus, div.tox .tox-button:active:focus:not(.tox-button--naked):not(.tox-button--secondary), .swal2-popup .swal2-actions button.swal2-confirm:active:focus,
 .fc .fc-button-primary:active:focus:not(:disabled), .btn-primary.active:focus, .wizard > .actions a.active:focus, div.tox .active.tox-button:focus:not(.tox-button--naked):not(.tox-button--secondary), .swal2-popup .swal2-actions button.active.swal2-confirm:focus, .fc .active.fc-button-primary.fc-button-active:focus:not(:disabled), .show > .btn-primary.dropdown-toggle:focus, .wizard > .actions .show > a.dropdown-toggle:focus, div.tox .show > .dropdown-toggle.tox-button:focus:not(.tox-button--naked):not(.tox-button--secondary), .swal2-popup .swal2-actions .show > button.dropdown-toggle.swal2-confirm:focus, .fc .show > .dropdown-toggle.fc-button-primary.fc-button-active:focus:not(:disabled) {
-  box-shadow: 0 0 0 0.25rem rgba(124, 134, 255, 0.5);
+  box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-box-shadow-rgb), 0.5);
 }
 .btn-primary:disabled, .wizard > .actions a:disabled, div.tox .tox-button:disabled:not(.tox-button--naked):not(.tox-button--secondary), .swal2-popup .swal2-actions button.swal2-confirm:disabled, .fc .fc-button-primary.fc-button-active:disabled:not(:disabled),
 .fc .fc-button-primary:disabled:not(:disabled):active, .btn-primary.disabled, .wizard > .actions a.disabled, div.tox .disabled.tox-button:not(.tox-button--naked):not(.tox-button--secondary), .swal2-popup .swal2-actions button.disabled.swal2-confirm, .fc .disabled.fc-button-primary.fc-button-active:not(:disabled),
