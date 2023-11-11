@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminItemController;
 use App\Http\Controllers\AdminMenuController;
 use App\Http\Controllers\AdminPaketController;
 use App\Http\Controllers\AdminPemesananController;
@@ -70,6 +71,7 @@ Route::middleware('auth')->group(function () {
                 'menu' => 'menu'
             ]);
             Route::get('/pemesanan-pembayaran', [AdminPemesananController::class, 'index'])->name('admin.pemesanan.index');
+            Route::get('/item/{pemesanan}', [AdminItemController::class, 'index'])->name('admin.item.index');
         });
     });
 });

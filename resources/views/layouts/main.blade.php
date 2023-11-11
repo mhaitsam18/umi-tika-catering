@@ -21,6 +21,10 @@
     <!-- Custom Font Icons -->
     <link href="/assets-foodboard/vendor/icomoon/css/iconfont.min.css" rel="stylesheet">
 
+    <!-- Plugin css for this page -->
+    {{-- <link rel="stylesheet" href="/assets-nobleui/vendors/datatables.net-bs4/dataTables.bootstrap4.css"> --}}
+    <!-- End plugin css for this page -->
+
     <!-- Vendor CSS -->
     <link href="/assets-foodboard/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets-foodboard/vendor/dmenu/css/menu.css" rel="stylesheet">
@@ -161,6 +165,11 @@
     <!-- Main Javascript File -->
     <script src="/assets-foodboard/js/scripts.js"></script>
 
+    <!-- Plugin js for this page -->
+    {{-- <script src="/assets-nobleui/vendors/datatables.net/jquery.dataTables.js"></script>
+    <script src="/assets-nobleui/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script> --}}
+    <!-- End plugin js for this page -->
+
     <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
     <script src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js">
     </script>
@@ -230,6 +239,9 @@
             });
         });
     </script>
+    <!-- Custom js for this page -->
+    {{-- <script src="/assets-nobleui/js/data-table.js"></script> --}}
+    <!-- End custom js for this page -->
     @yield('script')
 
 </body>

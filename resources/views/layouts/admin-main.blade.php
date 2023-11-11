@@ -32,6 +32,10 @@ License: For each use you must have a valid license purchased only from above li
     <!-- endinject -->
 
     <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="/assets-nobleui/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+    <!-- End plugin css for this page -->
+
+    <!-- Plugin css for this page -->
     <link rel="stylesheet" href="/assets-nobleui/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
     <!-- End plugin css for this page -->
 
@@ -116,6 +120,11 @@ License: For each use you must have a valid license purchased only from above li
     <script src="/assets-nobleui/js/datepicker.js"></script>
     <!-- End custom js for this page -->
 
+    <!-- Plugin js for this page -->
+    <script src="/assets-nobleui/vendors/datatables.net/jquery.dataTables.js"></script>
+    <script src="/assets-nobleui/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+    <!-- End plugin js for this page -->
+
     <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
     <script src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js">
     </script>
@@ -185,6 +194,9 @@ License: For each use you must have a valid license purchased only from above li
             });
         });
     </script>
+    <!-- Custom js for this page -->
+    <script src="/assets-nobleui/js/data-table.js"></script>
+    <!-- End custom js for this page -->
     @yield('script')
 </body>
 

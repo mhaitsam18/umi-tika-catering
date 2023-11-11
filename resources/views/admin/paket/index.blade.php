@@ -34,7 +34,7 @@
                     <div class="row align-items-start">
                         <div class="col-md-12">
                             <div class="table-responsive">
-                                <table class="table table-hover mb-0">
+                                <table class="table table-hover mb-0" id="dataTableExample">
                                     <thead>
                                         <tr>
                                             <th class="pt-0">#</th>
@@ -65,7 +65,6 @@
                                                             style="border: none; cursor: pointer;">Hapus</button>
                                                     </form>
                                                 </td>
-
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -134,34 +133,36 @@
                     @method('put')
                     <div class="modal-body">
                         <input type="hidden" name="id" id="id" value="">
-                        <label for="nama_paket" class="form-label">Nama Paket</label>
-                        <input type="text" name="nama_paket"
-                            class="form-control @error('nama_paket') is-invalid @enderror" id="nama_paket"
-                            value="{{ old('nama_paket') }}">
-                        @error('nama_paket')
-                            <div class="text-danger fs-6">
-                                {{ $message }}
-                            </div>
-                        @enderror
+                        <div class="mb-3">
+                            <label for="nama_paket" class="form-label">Nama Paket</label>
+                            <input type="text" name="nama_paket"
+                                class="form-control @error('nama_paket') is-invalid @enderror" id="nama_paket"
+                                value="{{ old('nama_paket') }}">
+                            @error('nama_paket')
+                                <div class="text-danger fs-6">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label for="harga" class="form-label">Harga</label>
+                            <input type="number" name="harga"
+                                class="form-control @error('harga') is-invalid @enderror" id="harga"
+                                value="{{ old('harga') }}">
+                            @error('harga')
+                                <div class="text-danger fs-6">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="harga" class="form-label">Harga</label>
-                        <input type="number" name="harga" class="form-control @error('harga') is-invalid @enderror"
-                            id="harga" value="{{ old('harga') }}">
-                        @error('harga')
-                            <div class="text-danger fs-6">
-                                {{ $message }}
-                            </div>
-                        @enderror
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
+                </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                <button type="submit" class="btn btn-primary">Simpan</button>
-            </div>
-            </form>
         </div>
-    </div>
     </div>
 @endsection
 

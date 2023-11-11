@@ -26,7 +26,7 @@
             <div class="card overflow-hidden">
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-baseline mb-4 mb-md-3">
-                        <h6 class="card-title mb-0">{{ $title }}</h6>
+                        <h6 class="card-title mb-0">Jadwal Catering dan Alamat Kirim Hari ini</h6>
                         <div class="dropdown">
                             <button class="btn p-0" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
@@ -49,7 +49,7 @@
                             </div>
                         </div>
                     </div>
-                    {{-- <div class="row align-items-start">
+                    <div class="row align-items-start">
                         <div class="col-md-7">
                             <p class="text-muted tx-13 mb-3 mb-md-0">Revenue is the income that a business
                                 has from its normal business activities, usually from the sale of goods and
@@ -57,16 +57,137 @@
                         </div>
                         <div class="col-md-5 d-flex justify-content-md-end">
                             <div class="btn-group mb-3 mb-md-0" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-outline-primary">Today</button>
+                                <button type="button" class="btn btn-primary">Today</button>
                                 <button type="button" class="btn btn-outline-primary d-none d-md-block">Week</button>
-                                <button type="button" class="btn btn-primary">Month</button>
+                                <button type="button" class="btn btn-outline-primary">Month</button>
                                 <button type="button" class="btn btn-outline-primary">Year</button>
                             </div>
                         </div>
-                    </div> --}}
-                    {{-- <div id="revenueChart"></div> --}}
+                    </div>
+                    <h4 class="card-title my-2">Sarapan</h4>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Viona</h5>
+                                    <h6 class="card-subtitle mb-2 text-body-secondary">Paket Healthy</h6>
+                                    <p class="card-text">Jl. Suryalaya XIII No.11, Cijagra, Kec. Lengkong, Kota Bandung,
+                                        Jawa Barat 40265
+                                    </p>
+                                    <a href="#" class="card-link">Lihat Maps</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Dio</h5>
+                                    <h6 class="card-subtitle mb-2 text-body-secondary">Paket Healthy</h6>
+                                    <p class="card-text">Jl. Suryalaya XIII No.11, Cijagra, Kec. Lengkong, Kota Bandung,
+                                        Jawa Barat 40265
+                                    </p>
+                                    <a href="#" class="card-link">Lihat Maps</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Alwi</h5>
+                                    <h6 class="card-subtitle mb-2 text-body-secondary">Paket Healthy</h6>
+                                    <p class="card-text">Jl. Suryalaya XIII No.11, Cijagra, Kec. Lengkong, Kota Bandung,
+                                        Jawa Barat 40265
+                                    </p>
+                                    <a href="#" class="card-link">Lihat Maps</a>
+                                </div>
+                            </div>
+                        </div>
+                        {{-- @foreach ($makan_siang as $siang)
+                        @endforeach --}}
+                    </div>
+                    <h4 class="card-title my-2">Makan Siang</h4>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Viona</h5>
+                                    <h6 class="card-subtitle mb-2 text-body-secondary">Paket Healthy</h6>
+                                    <p class="card-text">Jl. Suryalaya XIII No.11, Cijagra, Kec. Lengkong, Kota Bandung,
+                                        Jawa Barat 40265
+                                    </p>
+                                    <a href="#" class="card-link">Lihat Maps</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Dio</h5>
+                                    <h6 class="card-subtitle mb-2 text-body-secondary">Paket Healthy</h6>
+                                    <p class="card-text">Jl. Suryalaya XIII No.11, Cijagra, Kec. Lengkong, Kota Bandung,
+                                        Jawa Barat 40265
+                                    </p>
+                                    <a href="#" class="card-link">Lihat Maps</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Alwi</h5>
+                                    <h6 class="card-subtitle mb-2 text-body-secondary">Paket Healthy</h6>
+                                    <p class="card-text">Jl. Suryalaya XIII No.11, Cijagra, Kec. Lengkong, Kota Bandung,
+                                        Jawa Barat 40265
+                                    </p>
+                                    <a href="#" class="card-link">Lihat Maps</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 class="card-title my-2">Makan Malam</h4>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Viona</h5>
+                                    <h6 class="card-subtitle mb-2 text-body-secondary">Paket Healthy</h6>
+                                    <p class="card-text">Jl. Suryalaya XIII No.11, Cijagra, Kec. Lengkong, Kota Bandung,
+                                        Jawa Barat 40265
+                                    </p>
+                                    <a href="#" class="card-link">Lihat Maps</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Dio</h5>
+                                    <h6 class="card-subtitle mb-2 text-body-secondary">Paket Healthy</h6>
+                                    <p class="card-text">Jl. Suryalaya XIII No.11, Cijagra, Kec. Lengkong, Kota Bandung,
+                                        Jawa Barat 40265
+                                    </p>
+                                    <a href="#" class="card-link">Lihat Maps</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Alwi</h5>
+                                    <h6 class="card-subtitle mb-2 text-body-secondary">Paket Healthy</h6>
+                                    <p class="card-text">Jl. Suryalaya XIII No.11, Cijagra, Kec. Lengkong, Kota Bandung,
+                                        Jawa Barat 40265
+                                    </p>
+                                    <a href="#" class="card-link">Lihat Maps</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div> <!-- row -->
+@endsection
+@section('script')
 @endsection

@@ -27,7 +27,7 @@
                                 <a class="dropdown-item d-flex align-items-center" href="#" id="addButton"
                                     data-bs-toggle="modal" data-bs-target="#editModal"><i data-feather="plus"
                                         class="icon-sm me-2"></i> <span class="">Tambah
-                                        Menu</span></a>
+                                        Item</span></a>
                             </div>
                         </div>
                     </div>
@@ -41,31 +41,32 @@
                                             <th class="pt-0">Menu</th>
                                             <th class="pt-0">Waktu Makan</th>
                                             <th class="pt-0">Tanggal</th>
-                                            <th class="pt-0">Paket</th>
-                                            <th class="pt-0">Gambar</th>
+                                            <th class="pt-0">Jumlah</th>
+                                            <th class="pt-0">Harga per Item</th>
+                                            <th class="pt-0">Harga Total</th>
                                             <th class="pt-0">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($menus as $menu)
+                                        @foreach ($items as $item)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $menu->menu }}</td>
-                                                <td>{{ $menu->waktu_makan }}</td>
-                                                <td>{{ Carbon::parse($menu->tanggal)->isoFormat('LL') }}</td>
-                                                <td>{{ $menu->paket->nama_paket }}</td>
-                                                <td><img src="{{ asset('storage/' . $menu->gambar) }}" alt=""
-                                                        class="img-thumbnail"></td>
+                                                <td>{{ $item->menu->menu }}</td>
+                                                <td>{{ $item->menu->waktu_makan }}</td>
+                                                <td>{{ Carbon::parse($item->menu->tanggal)->isoFormat('LL') }}</td>
+                                                <td>{{ $item->jumlah }}</td>
+                                                <td>{{ $item->harga_per_item }}</td>
+                                                <td>{{ $item->harga_total }}</td>
                                                 <td>
                                                     <a href="#" class="badge bg-success d-inline-block editButton"
                                                         data-bs-toggle="modal" data-bs-target="#editModal"
-                                                        data-id="{{ $menu->id }}" data-menu="{{ $menu->menu }}"
-                                                        data-waktu_makan="{{ $menu->waktu_makan }}"
-                                                        data-tanggal="{{ $menu->tanggal }}"
-                                                        data-paket_id="{{ $menu->paket_id }}"
-                                                        data-gambar="{{ $menu->gambar }}">Edit</a>
-
-                                                    <form action="/admin/menu/{{ $menu->id }}" method="post"
+                                                        data-id="{{ $item->id }}"
+                                                        data-pemesanan_id="{{ $item->pemesanan_id }}"
+                                                        data-menu_id="{{ $item->menu_id }}"
+                                                        data-jumlah="{{ $item->jumlah }}"
+                                                        data-harga_per_item="{{ $item->harga_per_item }}"
+                                                        data-harga_total="{{ $item->harga_total }}">Edit</a>
+                                                    <form action="/admin/item/{{ $item->id }}" method="post"
                                                         class="d-inline-block">
                                                         @method('delete')
                                                         @csrf
@@ -94,69 +95,55 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="addModalLabel">Tambah menu</h1>
+                    <h1 class="modal-title fs-5" id="addModalLabel">Tambah Item</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="/admin/menu" method="post" enctype="multipart/form-data">
+                <form action="/admin/item" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label for="paket_id" class="form-label">Paket</label>
-                            <select name="paket_id" class="form-select @error('paket_id') is-invalid @enderror"
-                                id="paket_id">
-                                <option value="" selected disabled>Pilih Paket</option>
-                                @foreach ($pakets as $paket)
-                                    <option value="{{ $paket->id }}" @selected($paket->id == old('paket_id'))>
-                                        {{ $paket->nama_paket }}</option>
+                            <label for="menu_id" class="form-label">Menu</label>
+                            <select name="menu_id" class="form-select @error('menu_id') is-invalid @enderror"
+                                id="menu_id">
+                                <option value="" selected disabled>Pilih Menu</option>
+                                @foreach ($menus as $menu)
+                                    <option value="{{ $menu->id }}" @selected($menu->id == old('menu_id'))>
+                                        {{ $menu->tanggal . ' | ' . $menu->waktu_makan . ' | ' . $menu->menu }}</option>
                                 @endforeach
                             </select>
-                            @error('paket_id')
+                            @error('menu_id')
                                 <div class="text-danger fs-6">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="menu" class="form-label">Menu</label>
-                            <textarea name="menu" class="form-control @error('menu') is-invalid @enderror" id="menu">{{ old('menu') }}</textarea>
-                            @error('menu')
+                            <label for="jumlah" class="form-label">Jumlah</label>
+                            <input type="number" name="jumlah" class="form-control @error('jumlah') is-invalid @enderror"
+                                id="jumlah" value="{{ old('jumlah') }}">
+                            @error('jumlah')
                                 <div class="text-danger fs-6">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="waktu_makan" class="form-label">Waktu Makan</label>
-                            <select name="waktu_makan" class="form-select @error('waktu_makan') is-invalid @enderror"
-                                id="waktu_makan">
-                                <option value="" selected disabled>Pilih Waktu makan</option>
-                                <option value="breakfast" @selected('breakfast' == old('waktu_makan'))>Breakfast</option>
-                                <option value="lunch" @selected('lunch' == old('waktu_makan'))>Lunch</option>
-                                <option value="dinner" @selected('dinner' == old('waktu_makan'))>Dinner</option>
-                            </select>
-                            @error('waktu_makan')
+                            <label for="harga_per_item" class="form-label">Harga Per Item</label>
+                            <input type="number" name="harga_per_item"
+                                class="form-control @error('harga_per_item') is-invalid @enderror" id="harga_per_item"
+                                value="{{ old('harga_per_item') }}">
+                            @error('harga_per_item')
                                 <div class="text-danger fs-6">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="tanggal" class="form-label">Tanggal</label>
-                            <input type="date" name="tanggal"
-                                class="form-control @error('tanggal') is-invalid @enderror" id="tanggal"
-                                value="{{ old('tanggal') }}">
-                            @error('tanggal')
-                                <div class="text-danger fs-6">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-                        <div class="mb-3">
-                            <label for="gambar" class="form-label">Gambar</label>
-                            <input type="file" name="gambar"
-                                class="form-control @error('gambar') is-invalid @enderror" id="gambar"
-                                value="{{ old('gambar') }}">
-                            @error('gambar')
+                            <label for="harga_total" class="form-label">Harga Total</label>
+                            <input type="number" name="harga_total"
+                                class="form-control @error('harga_total') is-invalid @enderror" id="harga_total"
+                                value="{{ old('harga_total') }}">
+                            @error('harga_total')
                                 <div class="text-danger fs-6">
                                     {{ $message }}
                                 </div>
@@ -176,71 +163,59 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="editModalLabel">Ubah Menu</h1>
+                    <h1 class="modal-title fs-5" id="editModalLabel">Ubah Item</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="/admin/menu/" method="post" enctype="multipart/form-data" id="formEdit">
+                <form action="/admin/item/" method="post" enctype="multipart/form-data" id="formEdit">
                     @csrf
                     @method('put')
                     <div class="modal-body">
                         <input type="hidden" name="id" id="id" value="">
+                        <input type="hidden" name="pemesanan_id" id="pemesanan_id" value="">
                         <div class="mb-3">
-                            <label for="paket_id" class="form-label">Paket</label>
-                            <select name="paket_id" class="form-select @error('paket_id') is-invalid @enderror"
-                                id="paket_id">
-                                <option value="" selected disabled>Pilih Paket</option>
-                                @foreach ($pakets as $paket)
-                                    <option value="{{ $paket->id }}" @selected($paket->id == old('paket_id'))>
-                                        {{ $paket->nama_paket }}</option>
+                            <label for="menu_id" class="form-label">Menu</label>
+                            <select name="menu_id" class="form-select @error('menu_id') is-invalid @enderror"
+                                id="menu_id">
+                                <option value="" selected disabled>Pilih Menu</option>
+                                @foreach ($menus as $menu)
+                                    <option value="{{ $menu->id }}" @selected($menu->id == old('menu_id'))>
+                                        {{ $menu->tanggal . ' | ' . $menu->waktu_makan . ' | ' . $menu->menu }}</option>
                                 @endforeach
                             </select>
-                            @error('paket_id')
+                            @error('menu_id')
                                 <div class="text-danger fs-6">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="menu" class="form-label">Menu</label>
-                            <textarea name="menu" class="form-control @error('menu') is-invalid @enderror" id="menu">{{ old('menu') }}</textarea>
-                            @error('menu')
+                            <label for="jumlah" class="form-label">Jumlah</label>
+                            <input type="number" name="jumlah"
+                                class="form-control @error('jumlah') is-invalid @enderror" id="jumlah"
+                                value="{{ old('jumlah') }}">
+                            @error('jumlah')
                                 <div class="text-danger fs-6">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="waktu_makan" class="form-label">Waktu Makan</label>
-                            <select name="waktu_makan" class="form-select @error('waktu_makan') is-invalid @enderror"
-                                id="waktu_makan">
-                                <option value="" selected disabled>Pilih Waktu makan</option>
-                                <option value="breakfast" @selected('breakfast' == old('waktu_makan'))>Breakfast</option>
-                                <option value="lunch" @selected('lunch' == old('waktu_makan'))>Lunch</option>
-                                <option value="dinner" @selected('dinner' == old('waktu_makan'))>Dinner</option>
-                            </select>
-                            @error('waktu_makan')
+                            <label for="harga_per_item" class="form-label">Harga Per Item</label>
+                            <input type="number" name="harga_per_item"
+                                class="form-control @error('harga_per_item') is-invalid @enderror" id="harga_per_item"
+                                value="{{ old('harga_per_item') }}">
+                            @error('harga_per_item')
                                 <div class="text-danger fs-6">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="tanggal" class="form-label">Tanggal</label>
-                            <input type="date" name="tanggal"
-                                class="form-control @error('tanggal') is-invalid @enderror" id="tanggal"
-                                value="{{ old('tanggal') }}">
-                            @error('tanggal')
-                                <div class="text-danger fs-6">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-                        <div class="mb-3">
-                            <label for="gambar" class="form-label">Gambar</label>
-                            <input type="file" name="gambar"
-                                class="form-control @error('gambar') is-invalid @enderror" id="gambar"
-                                value="{{ old('gambar') }}">
-                            @error('gambar')
+                            <label for="harga_total" class="form-label">Harga Total</label>
+                            <input type="number" name="harga_total"
+                                class="form-control @error('harga_total') is-invalid @enderror" id="harga_total"
+                                value="{{ old('harga_total') }}">
+                            @error('harga_total')
                                 <div class="text-danger fs-6">
                                     {{ $message }}
                                 </div>
@@ -263,18 +238,18 @@
         $(document).on("click", ".editButton", function() {
             var id = $(this).data('id');
             $(".modal-body  #id").val(id);
-            $("#formEdit").attr("action", "/admin/menu/" + id);
+            $("#formEdit").attr("action", "/admin/item/" + id);
 
-            var menu = $(this).data('menu');
-            $(".modal-body  #menu").val(menu);
-            var paket_id = $(this).data('paket_id');
-            $(".modal-body  #paket_id").val(paket_id);
-            var waktu_makan = $(this).data('waktu_makan');
-            $(".modal-body  #waktu_makan").val(waktu_makan);
-            var tanggal = $(this).data('tanggal');
-            $(".modal-body  #tanggal").val(tanggal);
-            var gambar = $(this).data('gambar');
-            $(".modal-body  #gambar").val(gambar);
+            var pemesanan_id = $(this).data('pemesanan_id');
+            $(".modal-body  #pemesanan_id").val(pemesanan_id);
+            var menu_id = $(this).data('menu_id');
+            $(".modal-body  #menu_id").val(menu_id);
+            var jumlah = $(this).data('jumlah');
+            $(".modal-body  #jumlah").val(jumlah);
+            var harga_per_item = $(this).data('harga_per_item');
+            $(".modal-body  #harga_per_item").val(harga_per_item);
+            var harga_total = $(this).data('harga_total');
+            $(".modal-body  #harga_total").val(harga_total);
         });
         $(document).on("click", "#addButton", function() {
             $(".modal-body textarea").val(''); // Mengosongkan nilai pada elemen textarea

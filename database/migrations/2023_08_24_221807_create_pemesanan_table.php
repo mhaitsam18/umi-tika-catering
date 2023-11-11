@@ -20,6 +20,7 @@ return new class extends Migration
             $table->decimal('diskon')->nullable();
             $table->float('total_harga')->nullable();
             $table->float('harga_diskon')->nullable();
+            $table->string('bukti_bayar')->nullable();
             $table->enum('status', ['proses', 'selesai', 'batal'])->nullable();
             $table->timestamps();
             $table->softDeletes();

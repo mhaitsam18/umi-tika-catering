@@ -29,6 +29,10 @@
     <link href="/assets-foodboard/vendor/magnific-popup/css/magnific-popup.css" rel="stylesheet">
     <link href="/assets-foodboard/vendor/float-labels/css/float-labels.min.css" rel="stylesheet">
 
+    <!-- Plugin css for this page -->
+    {{-- <link rel="stylesheet" href="/assets-nobleui/vendors/datatables.net-bs4/dataTables.bootstrap4.css"> --}}
+    <!-- End plugin css for this page -->
+
     <!-- Main CSS -->
     <link href="/assets-foodboard/css/style.css" rel="stylesheet">
     <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
@@ -96,6 +100,11 @@
 
     <!-- Main Javascript File -->
     <script src="/assets-foodboard/js/scripts.js"></script>
+
+    <!-- Plugin js for this page -->
+    {{-- <script src="/assets-nobleui/vendors/datatables.net/jquery.dataTables.js"></script>
+    <script src="/assets-nobleui/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script> --}}
+    <!-- End plugin js for this page -->
 
     <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
     <script src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js">
@@ -166,6 +175,9 @@
             });
         });
     </script>
+    <!-- Custom js for this page -->
+    {{-- <script src="/assets-nobleui/js/data-table.js"></script> --}}
+    <!-- End custom js for this page -->
     @yield('script')
 
 </body>
