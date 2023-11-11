@@ -15,7 +15,7 @@ class AdminItemController extends Controller
     public function index(Pemesanan $pemesanan)
     {
         return view('admin.item.index', [
-            'title' => 'Umi Tika Catering | Pemesanan dan Pembayaran',
+            'title' => 'Umi Tika Catering | Detail Pemesanan',
             'page' => 'pemesanan',
             'pemesanan' => $pemesanan,
             'menus' => Menu::whereDate('tanggal', '>=', now())->get(),
