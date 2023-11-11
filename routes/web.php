@@ -25,7 +25,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/home', [HomeController::class, 'index'])->name('home.index');
-Route::get('/catering', [HomeController::class, 'catering'])->name('home.catering');
 Route::get('/tentang-kami', [HomeController::class, 'tentangkami'])->name('home.tentang-kami');
 Route::get('/testimoni', [HomeController::class, 'testimoni'])->name('home.testimoni');
 
@@ -53,6 +52,7 @@ Route::middleware('auth')->group(function () {
         });
     });
     Route::middleware('member')->group(function () {
+        Route::get('/catering', [HomeController::class, 'catering'])->name('home.catering');
         Route::prefix('member')->group(function () {
         });
     });

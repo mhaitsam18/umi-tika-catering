@@ -18,13 +18,13 @@ class AuthController extends Controller
 {
     public function index()
     {
-        if(!auth()->check()){
+        if (!auth()->check()) {
             return redirect()->route('home');
-        } else if(auth()->user()->role == "admin") {
+        } else if (auth()->user()->role == "admin") {
             return redirect('/admin/index');
-        } else if(auth()->user()->role == "member"){
+        } else if (auth()->user()->role == "member") {
             return redirect('/');
-        } else{
+        } else {
             Auth::logout();
             request()->session()->invalidate();
             request()->session()->regenerateToken();
