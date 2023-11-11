@@ -24,16 +24,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/home', [HomeController::class, 'index'])->name('home.index');
+Route::get('/catering', [HomeController::class, 'catering'])->name('home.catering');
+Route::get('/tentang-kami', [HomeController::class, 'tentangkami'])->name('home.tentang-kami');
+Route::get('/testimoni', [HomeController::class, 'testimoni'])->name('home.testimoni');
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'login'])->name('login');
     Route::post('/login', [AuthController::class, 'authenticate'])->name('authenticate');
     Route::get('/register', [AuthController::class, 'register'])->name('register');
     Route::post('/register', [AuthController::class, 'store'])->name('store');
-
-
-
-    Route::get('/home', [HomeController::class, 'index'])->name('home.index');
 });
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('get.logout');
