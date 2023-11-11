@@ -28,4 +28,9 @@ class Member extends Model
     {
         return $this->hasMany(Pemesanan::class);
     }
+
+    public function testimoni()
+    {
+        return $this->hasMany(Testimoni::class);
+    }
 }
