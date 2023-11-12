@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Menu;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -15,7 +16,8 @@ class HomeController extends Controller
     public function catering()
     {
         return view('home.catering', [
-            'title' => 'Umi Tika Catering | Catering'
+            'title' => 'Umi Tika Catering | Catering',
+            'tanggal' => Menu::distinct('tanggal')->pluck('tanggal')
         ]);
     }
     public function tentangkami()

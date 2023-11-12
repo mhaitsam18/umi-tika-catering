@@ -6,9 +6,9 @@
             <div class="main-title">
                 <span><em></em></span>
                 <h2 id="orderFood">Pesan Catering</h2>
-                <p>Choosing one of the payment methods</p>
+                <p>Pastikan Data Member dan Alamat Kirim sudah benar agar Anda bisa makan :)</p>
             </div>
-            <div class="card">
+            <div class="card mb-3">
                 <div class="card-body">
                     <h4>Data Member & Alamat Kirim</h4>
                     <form action="/member/profile" method="post" enctype="multipart/form-data">
@@ -27,20 +27,14 @@
                                     <input type="text" class="form-control" id="name" name="name"
                                         placeholder="Masukkan nama" value="{{ auth()->user()->name }}">
                                 </div>
-                                <div class="mb-3">
-                                    <label for="image" class="form-label">Foto Profil</label>
-                                    <input type="file" class="form-control" id="image" name="image">
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <img src="{{ asset('storage/' . auth()->user()->image) }}" alt=""
-                                                class="img-thumbnail img-fluid">
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
 
                             <!-- Kolom Kanan -->
-                            <div class="col-lg-6">
+                            <div class="col-lg-3">
+                                <div class="mb-3">
+                                    <label for="image" class="form-label">Foto Profil</label>
+                                    <input type="file" class="form-control" id="image" name="image">
+                                </div>
                                 <div class="mb-3">
                                     <label for="alamat_kirim" class="form-label">Alamat Kirim</label>
                                     <textarea class="form-control" id="alamat_kirim" name="alamat_kirim" placeholder="Masukkan alamat kirim">{{ auth()->user()->member->alamat_kirim }}</textarea>
@@ -52,17 +46,43 @@
                                         value="{{ auth()->user()->member->nomor_wa }}">
                                 </div>
                             </div>
+                            <div class="col-lg-3">
+                                <div class="row">
+                                    <div class="col-sm-9">
+                                        <img src="{{ asset('storage/' . auth()->user()->image) }}" alt=""
+                                            class="img-thumbnail img-fluid">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="mb-3">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                        <div class="mb-3 float-right">
+                            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h4>Yuk isi Form buat order</h4>
+                    <form action="/member/pilih-menu" method="get">
+                        @csrf
+                        <div class="col-lg-3">
+                            <div class="mb-3">
+                                <h6>Pilih Tanggal</h6>
+                                <input type="text" class="form-control calendar" name="tanggal"
+                                    placeholder="Pilih Tanggal" />
+                            </div>
+                            <div class="mb-3 float-right">
+                                <button type="submit" class="btn btn-primary">Lanjut</button>
+                            </div>
                         </div>
                     </form>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-lg-6 animated-element">
+                {{-- <div class="col-lg-6 animated-element">
                     <a href="pay-with-card-online/" class="service-link">
                         <div class="box text-center">
                             <div class="icon d-flex align-items-end"><i class="icon icon-credit-card2"></i></div>
@@ -79,26 +99,11 @@
                             <p>when food is arrived to you</p>
                         </div>
                     </a>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
     <!-- Services End -->
-
-    <div class="banner animated-element">
-        <div class="container">
-            <div class="content">
-                <div class="mask">
-                    <div class="textbox">
-                        <small>Umi Tika Delivery</small>
-                        <h2>Umi Tika Catering</h2>
-                        <p>Pesan Catering sekarang! dari pada besok lapar.</p>
-                        <a href="/catering" class="btn-1">Yuk Order</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection
 
 
@@ -123,6 +128,17 @@
                     reader.readAsDataURL(input.files[0]);
                 }
             }
+        });
+        // Menangani inisialisasi flatpickr untuk memilih banyak tanggal
+        $(document).ready(function() {
+            // Menangani inisialisasi flatpickr untuk memilih banyak tanggal
+            flatpickr('.calendar', {
+                mode: 'multiple',
+                dateFormat: 'Y-m-d',
+                minDate: 'today', // Menetapkan tanggal minimum ke hari ini
+                enable: {!! json_encode($tanggal) !!}, // Menggunakan data tanggal dari Laravel
+                // Opsi tambahan sesuai kebutuhan
+            });
         });
     </script>
 @endsection

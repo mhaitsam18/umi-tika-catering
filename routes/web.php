@@ -9,6 +9,7 @@ use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MemberPemesananController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -54,6 +55,10 @@ Route::middleware('auth')->group(function () {
     Route::middleware('member')->group(function () {
         Route::get('/catering', [HomeController::class, 'catering'])->name('home.catering');
         Route::prefix('member')->group(function () {
+            Route::get('/pilih-menu', [MemberPemesananController::class, 'pilihMenu'])->name('member.pemesanan.pilih-menu');
+            Route::post('/add-cart', [MemberPemesananController::class, 'addToCart'])->name('cart.add');
+            Route::post('/update-cart', [MemberPemesananController::class, 'updateItem'])->name('cart.update');
+            Route::post('/remove-cart', [MemberPemesananController::class, 'removeItem'])->name('cart.remove');
         });
     });
     Route::middleware('admin')->group(function () {

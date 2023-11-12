@@ -79,35 +79,35 @@ class DatabaseSeeder extends Seeder
         Menu::create([
             'menu' => 'Nasi Putih, Gulai udang/ayam, rendang tempe, tumis kol kacang panjang, sambal hijau',
             'waktu_makan' => 'lunch',
-            'tanggal' => '2023-09-04',
+            'tanggal' => '2023-12-04',
             'paket_id' => 1,
             'gambar' => 'menu/menu-default.jpg',
         ]);
         Menu::create([
             'menu' => 'Nasi Putih, Ayam Kari Crispy, Tahu Balado, Lalapan, sambal',
             'waktu_makan' => 'lunch',
-            'tanggal' => '2023-09-05',
+            'tanggal' => '2023-12-05',
             'paket_id' => 1,
             'gambar' => 'menu/menu-default.jpg',
         ]);
         Menu::create([
             'menu' => 'Nasi Putih, scitch beef eff, kentang saus tiram, Cah pakcoy wortel, saus sambal',
             'waktu_makan' => 'lunch',
-            'tanggal' => '2023-09-06',
+            'tanggal' => '2023-12-06',
             'paket_id' => 1,
             'gambar' => 'menu/menu-default.jpg',
         ]);
         Menu::create([
             'menu' => 'Nasi Putih, Telor gochujang, Gimmari, cah sawi putih, saus sambal',
             'waktu_makan' => 'lunch',
-            'tanggal' => '2023-09-07',
+            'tanggal' => '2023-12-07',
             'paket_id' => 1,
             'gambar' => 'menu/menu-default.jpg',
         ]);
         Menu::create([
             'menu' => 'Nasi Putih, Sate ayam maranggi, sup sayur sosis, sambal kecap, snack',
             'waktu_makan' => 'lunch',
-            'tanggal' => '2023-09-08',
+            'tanggal' => '2023-12-08',
             'paket_id' => 1,
             'gambar' => 'menu/menu-default.jpg',
         ]);
@@ -115,35 +115,35 @@ class DatabaseSeeder extends Seeder
         Menu::create([
             'menu' => 'Nasi Putih, Semur telur, perkedel tahu, cah labusiam',
             'waktu_makan' => 'dinner',
-            'tanggal' => '2023-09-04',
+            'tanggal' => '2023-12-04',
             'paket_id' => 1,
             'gambar' => 'menu/menu-default.jpg',
         ]);
         Menu::create([
             'menu' => 'Nasi Putih, soto bandung daging sapi, bola-bola sayur, sambal',
             'waktu_makan' => 'dinner',
-            'tanggal' => '2023-09-05',
+            'tanggal' => '2023-12-05',
             'paket_id' => 1,
             'gambar' => 'menu/menu-default.jpg',
         ]);
         Menu::create([
             'menu' => 'Nasi Putih, Kuwotie ayam, kentang saus tiram, cah tauge, saus sambal',
             'waktu_makan' => 'dinner',
-            'tanggal' => '2023-09-06',
+            'tanggal' => '2023-12-06',
             'paket_id' => 1,
             'gambar' => 'menu/menu-default.jpg',
         ]);
         Menu::create([
             'menu' => 'Nasi Putih, ayam suwir kemangi, tempe bacem, sayur lodeh, sambal',
             'waktu_makan' => 'dinner',
-            'tanggal' => '2023-09-07',
+            'tanggal' => '2023-12-07',
             'paket_id' => 1,
             'gambar' => 'menu/menu-default.jpg',
         ]);
         Menu::create([
             'menu' => 'Nasi Putih, ikan kakap fillet/ayam fillet, makaroni keju, tumis buncis wortel jagung telur, saus sambal, snack',
             'waktu_makan' => 'dinner',
-            'tanggal' => '2023-09-08',
+            'tanggal' => '2023-12-08',
             'paket_id' => 1,
             'gambar' => 'menu/menu-default.jpg',
         ]);
@@ -151,35 +151,35 @@ class DatabaseSeeder extends Seeder
         Menu::create([
             'menu' => 'Nasi Merah, Gulai udang/ayam, rendang tempe, tumis kol kacang panjang, sambal hijau',
             'waktu_makan' => 'lunch',
-            'tanggal' => '2023-09-04',
+            'tanggal' => '2023-12-04',
             'paket_id' => 2,
             'gambar' => 'menu/menu-default.jpg',
         ]);
         Menu::create([
             'menu' => 'Nasi Merah, Ayam Kari Crispy, Tahu Balado, Lalapan, sambal',
             'waktu_makan' => 'lunch',
-            'tanggal' => '2023-09-05',
+            'tanggal' => '2023-12-05',
             'paket_id' => 2,
             'gambar' => 'menu/menu-default.jpg',
         ]);
         Menu::create([
             'menu' => 'Nasi Merah, scitch beef eff, kentang saus tiram, Cah pakcoy wortel, saus sambal',
             'waktu_makan' => 'lunch',
-            'tanggal' => '2023-09-06',
+            'tanggal' => '2023-12-06',
             'paket_id' => 2,
             'gambar' => 'menu/menu-default.jpg',
         ]);
         Menu::create([
             'menu' => 'Nasi Merah, Telor gochujang, Gimmari, cah sawi Putih, saus sambal',
             'waktu_makan' => 'lunch',
-            'tanggal' => '2023-09-07',
+            'tanggal' => '2023-12-07',
             'paket_id' => 2,
             'gambar' => 'menu/menu-default.jpg',
         ]);
         Menu::create([
             'menu' => 'Nasi Merah, Sate ayam maranggi, sup sayur sosis, sambal kecap, snack',
             'waktu_makan' => 'lunch',
-            'tanggal' => '2023-09-08',
+            'tanggal' => '2023-12-08',
             'paket_id' => 2,
             'gambar' => 'menu/menu-default.jpg',
         ]);
@@ -187,70 +187,70 @@ class DatabaseSeeder extends Seeder
         Menu::create([
             'menu' => 'Nasi Merah, Semur telur, perkedel tahu, cah labusiam',
             'waktu_makan' => 'dinner',
-            'tanggal' => '2023-09-04',
+            'tanggal' => '2023-12-04',
             'paket_id' => 2,
             'gambar' => 'menu/menu-default.jpg',
         ]);
         Menu::create([
             'menu' => 'Nasi Merah, soto bandung daging sapi, bola-bola sayur, sambal',
             'waktu_makan' => 'dinner',
-            'tanggal' => '2023-09-05',
+            'tanggal' => '2023-12-05',
             'paket_id' => 2,
             'gambar' => 'menu/menu-default.jpg',
         ]);
         Menu::create([
             'menu' => 'Nasi Merah, Kuwotie ayam, kentang saus tiram, cah tauge, saus sambal',
             'waktu_makan' => 'dinner',
-            'tanggal' => '2023-09-06',
+            'tanggal' => '2023-12-06',
             'paket_id' => 2,
             'gambar' => 'menu/menu-default.jpg',
         ]);
         Menu::create([
             'menu' => 'Nasi Merah, ayam suwir kemangi, tempe bacem, sayur lodeh, sambal',
             'waktu_makan' => 'dinner',
-            'tanggal' => '2023-09-07',
+            'tanggal' => '2023-12-07',
             'paket_id' => 2,
             'gambar' => 'menu/menu-default.jpg',
         ]);
         Menu::create([
             'menu' => 'Nasi Merah, ikan kakap fillet/ayam fillet, makaroni keju, tumis buncis wortel jagung telur, saus sambal, snack',
             'waktu_makan' => 'dinner',
-            'tanggal' => '2023-09-08',
+            'tanggal' => '2023-12-08',
             'paket_id' => 2,
             'gambar' => 'menu/menu-default.jpg',
         ]);
         Menu::create([
             'menu' => 'Nasi Merah, Gulai udang/ayam, rendang tempe, tumis kol kacang panjang, sambal hijau',
             'waktu_makan' => 'lunch',
-            'tanggal' => '2023-09-04',
+            'tanggal' => '2023-12-04',
             'paket_id' => 3,
             'gambar' => 'menu/menu-default.jpg',
         ]);
         Menu::create([
             'menu' => 'Nasi Merah, Ayam Kari Crispy, Tahu Balado, Lalapan, sambal',
             'waktu_makan' => 'lunch',
-            'tanggal' => '2023-09-05',
+            'tanggal' => '2023-12-05',
             'paket_id' => 3,
             'gambar' => 'menu/menu-default.jpg',
         ]);
         Menu::create([
             'menu' => 'Nasi Merah, scitch beef eff, kentang saus tiram, Cah pakcoy wortel, saus sambal',
             'waktu_makan' => 'lunch',
-            'tanggal' => '2023-09-06',
+            'tanggal' => '2023-12-06',
             'paket_id' => 3,
             'gambar' => 'menu/menu-default.jpg',
         ]);
         Menu::create([
             'menu' => 'Nasi Merah, Telor gochujang, Gimmari, cah sawi Putih, saus sambal',
             'waktu_makan' => 'lunch',
-            'tanggal' => '2023-09-07',
+            'tanggal' => '2023-12-07',
             'paket_id' => 3,
             'gambar' => 'menu/menu-default.jpg',
         ]);
         Menu::create([
             'menu' => 'Nasi Merah, Sate ayam maranggi, sup sayur sosis, sambal kecap, snack',
             'waktu_makan' => 'lunch',
-            'tanggal' => '2023-09-08',
+            'tanggal' => '2023-12-08',
             'paket_id' => 3,
             'gambar' => 'menu/menu-default.jpg',
         ]);
@@ -258,40 +258,37 @@ class DatabaseSeeder extends Seeder
         Menu::create([
             'menu' => 'Nasi Merah, Semur telur, perkedel tahu, cah labusiam',
             'waktu_makan' => 'dinner',
-            'tanggal' => '2023-09-04',
+            'tanggal' => '2023-12-04',
             'paket_id' => 3,
             'gambar' => 'menu/menu-default.jpg',
         ]);
         Menu::create([
             'menu' => 'Nasi Merah, soto bandung daging sapi, bola-bola sayur, sambal',
             'waktu_makan' => 'dinner',
-            'tanggal' => '2023-09-05',
+            'tanggal' => '2023-12-05',
             'paket_id' => 3,
             'gambar' => 'menu/menu-default.jpg',
         ]);
         Menu::create([
             'menu' => 'Nasi Merah, Kuwotie ayam, kentang saus tiram, cah tauge, saus sambal',
             'waktu_makan' => 'dinner',
-            'tanggal' => '2023-09-06',
+            'tanggal' => '2023-12-06',
             'paket_id' => 3,
             'gambar' => 'menu/menu-default.jpg',
         ]);
         Menu::create([
             'menu' => 'Nasi Merah, ayam suwir kemangi, tempe bacem, sayur lodeh, sambal',
             'waktu_makan' => 'dinner',
-            'tanggal' => '2023-09-07',
+            'tanggal' => '2023-12-07',
             'paket_id' => 3,
             'gambar' => 'menu/menu-default.jpg',
         ]);
         Menu::create([
             'menu' => 'Nasi Merah, ikan kakap fillet/ayam fillet, makaroni keju, tumis buncis wortel jagung telur, saus sambal, snack',
             'waktu_makan' => 'dinner',
-            'tanggal' => '2023-09-08',
+            'tanggal' => '2023-12-08',
             'paket_id' => 3,
             'gambar' => 'menu/menu-default.jpg',
         ]);
-
-
-
     }
 }

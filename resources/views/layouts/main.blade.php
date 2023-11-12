@@ -39,6 +39,7 @@
         rel="stylesheet" />
     <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
     <link href="https://unpkg.com/filepond-plugin-image-edit/dist/filepond-plugin-image-edit.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     @yield('style')
 
 </head>
@@ -242,6 +243,7 @@
     <!-- Custom js for this page -->
     {{-- <script src="/assets-nobleui/js/data-table.js"></script> --}}
     <!-- End custom js for this page -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     @yield('script')
 
 </body>
