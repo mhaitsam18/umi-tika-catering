@@ -18,10 +18,11 @@
         <div class="container">
             <div class="main-title">
                 <span><em></em></span>
-                <h2 id="orderFood">Order Food</h2>
-                <p>Choosing one of the payment methods</p>
+                <h2 id="orderFood">Yuk Order Catering Umi Tika</h2>
+                <p>Bingung mau makan apa? bosen lauknya itu-itu aja? mungkin itu karena kamu belum kenal sama Umi Tika
+                    Catering :)</p>
             </div>
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-lg-6 animated-element">
                     <a href="pay-with-card-online/" class="service-link">
                         <div class="box text-center">
@@ -40,7 +41,7 @@
                         </div>
                     </a>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
     <!-- Services End -->
