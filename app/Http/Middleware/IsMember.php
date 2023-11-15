@@ -16,7 +16,7 @@ class IsMember
     public function handle(Request $request, Closure $next): Response
     {
         if (auth()->user()->role != 'member') {
-            abort(404);
+            abort(403, 'Tidak memiliki wewenang');
         }
         return $next($request);
     }

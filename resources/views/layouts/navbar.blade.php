@@ -20,21 +20,24 @@
                         <li><a href="/login" title="login"><i class="icon icon-enter"></i></a></li>
                     @endguest
                     @auth
-                    <li><a href="#"><i class="icon icon-shopping-cart2"></i></a></li>
+                        <li><a href="#"><i class="icon icon-shopping-cart2"></i></a></li>
 
-                    <li>
-                        <form action="/logout" method="post">
-                            @csrf
-                            <button type="submit" title="logout" class="button-a"><i class="icon icon-exit"></i></button>
-                        </form>
-                    </li>
+                        <li>
+                            <form action="/logout" method="post">
+                                @csrf
+                                <button type="submit" title="logout" class="button-a"><i
+                                        class="icon icon-exit"></i></button>
+                            </form>
+                        </li>
                     @endauth
                 </ul>
                 <!-- Menu -->
                 <nav id="menu" class="main-menu">
                     <ul>
                         <li><span><a href="/">Beranda</a></span></li>
-                        <li><span><a href="/catering">Catering</a></span></li>
+                        @cannot('admin')
+                            <li><span><a href="/catering">Catering</a></span></li>
+                        @endcannot
                         {{-- <li>
                             <span><a href="#">Order <i class="fa fa-chevron-down"></i></a></span>
                             <ul>
