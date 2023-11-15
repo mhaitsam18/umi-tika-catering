@@ -14,18 +14,32 @@
                     <form action="/member/profile" method="post" enctype="multipart/form-data">
                         @method('put')
                         @csrf
+                        <input type="hidden" name="user_id" id="user_id" value="{{ auth()->user()->id }}">
+                        <input type="hidden" name="member_id" id="member_id" value="{{ auth()->user()->member->id }}">
                         <div class="row">
                             <!-- Kolom Kiri -->
                             <div class="col-lg-6">
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="email" name="email"
-                                        placeholder="Masukkan email" value="{{ auth()->user()->email }}">
+                                    <input type="email" class="form-control @error('email') is-invalid @enderror"
+                                        id="email" name="email" placeholder="Masukkan email"
+                                        value="{{ old('email', auth()->user()->email) }}">
+                                    @error('email')
+                                        <div class="text-danger fs-6">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Nama Lengkap</label>
-                                    <input type="text" class="form-control" id="name" name="name"
-                                        placeholder="Masukkan nama" value="{{ auth()->user()->name }}">
+                                    <input type="text" class="form-control @error('name') is-invalid @enderror"
+                                        id="name" name="name" placeholder="Masukkan nama"
+                                        value="{{ old('name', auth()->user()->name) }}">
+                                    @error('name')
+                                        <div class="text-danger fs-6">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
 
