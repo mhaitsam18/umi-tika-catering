@@ -78,11 +78,22 @@ class Handler extends ExceptionHandler
                     'code' => '404',
                 ], 404);
             } else {
-                return response()->view('errors.index', [
-                    'title' => 'Terjadi Kesalahan',
-                    'message' => 'Terjadi kesalahan dalam sistem',
-                    'code' => '500',
-                ], 500);
+                $translatedMessage = trans("http.$statusCode");
+
+                if ($translatedMessage !== "http.$statusCode") {
+                    return response()->view('errors.index', [
+                        'title' => 'Terjadi Kesalahan',
+                        'message' => $translatedMessage,
+                        'code' => "$statusCode",
+                    ], $statusCode);
+                } else {
+                    // Jika pesan tidak ditemukan dalam bahasa Indonesia, gunakan pesan asli Laravel
+                    return response()->view('errors.index', [
+                        'title' => 'Terjadi Kesalahan',
+                        'message' => $exception->getMessage(),
+                        'code' => "$statusCode",
+                    ], $statusCode);
+                }
             }
             // Tambahkan penanganan khusus untuk kode status lainnya jika diperlukan
         }

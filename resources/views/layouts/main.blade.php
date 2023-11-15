@@ -25,6 +25,7 @@
     {{-- <link rel="stylesheet" href="/assets-nobleui/vendors/datatables.net-bs4/dataTables.bootstrap4.css"> --}}
     <!-- End plugin css for this page -->
 
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
     <!-- Vendor CSS -->
     <link href="/assets-foodboard/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets-foodboard/vendor/dmenu/css/menu.css" rel="stylesheet">
@@ -244,6 +245,11 @@
     {{-- <script src="/assets-nobleui/js/data-table.js"></script> --}}
     <!-- End custom js for this page -->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script>
+        let table = new DataTable('#myTable');
+    </script>
     @yield('script')
 
 </body>

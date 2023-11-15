@@ -3,10 +3,9 @@
     <!-- Services -->
     <div class="services">
         <div class="container">
-            <div class="main-title">
+            <div class="main-title mb-3">
                 <span><em></em></span>
-                <h2 id="orderFood">Pesan Catering</h2>
-                <p>Pastikan Data Member dan Alamat Kirim sudah benar agar Anda bisa makan :)</p>
+                <h2 id="orderFood">Profile</h2>
             </div>
             <div class="card mb-3">
                 <div class="card-body">
@@ -93,45 +92,6 @@
                     </form>
                 </div>
             </div>
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h4>Yuk isi Form buat order</h4>
-                    <form action="/member/pilih-menu" method="get">
-                        @csrf
-                        <div class="col-lg-3">
-                            <div class="mb-3">
-                                <h6>Pilih Tanggal</h6>
-                                <input type="text" class="form-control calendar" name="tanggal"
-                                    placeholder="Pilih Tanggal" />
-                            </div>
-                            <div class="mb-3 float-right">
-                                <button type="submit" class="btn btn-primary">Lanjut</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <div class="row">
-                {{-- <div class="col-lg-6 animated-element">
-                    <a href="pay-with-card-online/" class="service-link">
-                        <div class="box text-center">
-                            <div class="icon d-flex align-items-end"><i class="icon icon-credit-card2"></i></div>
-                            <h3 class="service-title">Pay Online</h3>
-                            <p>and wait for delivery</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-6 animated-element">
-                    <a href="pay-with-cash-on-delivery/" class="service-link">
-                        <div class="box text-center">
-                            <div class="icon d-flex align-items-end"><i class="icon icon-wallet"></i></div>
-                            <h3 class="service-title">Pay with cash</h3>
-                            <p>when food is arrived to you</p>
-                        </div>
-                    </a>
-                </div> --}}
-            </div>
         </div>
     </div>
     <!-- Services End -->
@@ -159,17 +119,6 @@
                     reader.readAsDataURL(input.files[0]);
                 }
             }
-        });
-        // Menangani inisialisasi flatpickr untuk memilih banyak tanggal
-        $(document).ready(function() {
-            // Menangani inisialisasi flatpickr untuk memilih banyak tanggal
-            flatpickr('.calendar', {
-                mode: 'multiple',
-                dateFormat: 'Y-m-d',
-                minDate: 'today', // Menetapkan tanggal minimum ke hari ini
-                enable: {!! json_encode($tanggal) !!}, // Menggunakan data tanggal dari Laravel
-                // Opsi tambahan sesuai kebutuhan
-            });
         });
     </script>
 @endsection

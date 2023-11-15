@@ -58,7 +58,10 @@ Route::middleware('auth')->group(function () {
         Route::prefix('member')->group(function () {
             Route::get('/profile', [MemberController::class, 'profile'])->name('member.profile');
             Route::put('/profile', [MemberController::class, 'updateProfile'])->name('member.profile.update');
+
+
             Route::get('/pilih-menu', [MemberPemesananController::class, 'pilihMenu'])->name('member.pemesanan.pilih-menu');
+            Route::get('/keranjang', [MemberPemesananController::class, 'index'])->name('member.keranjang');
             Route::post('/add-cart', [MemberPemesananController::class, 'addToCart'])->name('cart.add');
             Route::post('/update-cart', [MemberPemesananController::class, 'updateItem'])->name('cart.update');
             Route::post('/remove-cart', [MemberPemesananController::class, 'removeItem'])->name('cart.remove');

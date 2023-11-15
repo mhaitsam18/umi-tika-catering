@@ -13,6 +13,9 @@ class MemberController extends Controller
     }
     public function profile()
     {
+        return view('member.profile', [
+            'title' => 'Umi Tika Catering | Profile',
+        ]);
     }
 
     public function updateProfile(Request $request)

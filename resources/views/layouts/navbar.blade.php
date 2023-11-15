@@ -20,7 +20,7 @@
                         <li><a href="/login" title="login"><i class="icon icon-enter"></i></a></li>
                     @endguest
                     @auth
-                        <li><a href="#"><i class="icon icon-shopping-cart2"></i></a></li>
+                        <li><a href="keranjang"><i class="icon icon-shopping-cart2"></i></a></li>
 
                         <li>
                             <form action="/logout" method="post">
@@ -59,6 +59,9 @@
                         </li> --}}
                         <li><span><a href="/tentang-kami">Tentang Kami</a></span></li>
                         <li><span><a href="/testimoni">Testimoni</a></span></li>
+                        @can('member')
+                            <li><span><a href="/member/profile">Profile</a></span></li>
+                        @endcan
                     </ul>
                 </nav>
                 <!-- Menu End -->

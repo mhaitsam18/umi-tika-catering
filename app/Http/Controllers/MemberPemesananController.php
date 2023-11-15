@@ -13,7 +13,9 @@ class MemberPemesananController extends Controller
      */
     public function index()
     {
-        //
+        return view('member.pemesanan.index', [
+            'title' => 'Umi Tika Catering | Keranjang',
+        ]);
     }
 
     public function pilihMenu(Request $request)
