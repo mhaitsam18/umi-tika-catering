@@ -58,6 +58,13 @@ Route::middleware('auth')->group(function () {
 
             Route::get('/pilih-menu', [MemberPemesananController::class, 'pilihMenu'])->name('member.pemesanan.pilih-menu');
             Route::get('/pesanan-saya', [MemberPemesananController::class, 'index'])->name('member.pemesanan.index');
+            Route::get('/riwayat-pemesanan', [MemberPemesananController::class, 'riwayat'])->name('member.pemesanan.riwayat');
+
+            Route::get('/get-pemesanan', [MemberPemesananController::class, 'getPemesananData'])->name('get-pemesanan');
+            Route::get('/get-riwayat', [MemberPemesananController::class, 'getRiwayatData'])->name('get-riwayat');
+            Route::get('/get-detail-pemesanan/{id}', [MemberPemesananController::class, 'getPemesananDetails']);
+
+
             Route::get('/keranjang', [MemberPemesananController::class, 'keranjang'])->name('member.keranjang');
             Route::post('/checkout', [MemberPemesananController::class, 'checkout'])->name('member.pemesanan.checkout');
             Route::post('/add-cart', [MemberPemesananController::class, 'addToCart'])->name('cart.add');

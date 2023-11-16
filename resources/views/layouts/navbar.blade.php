@@ -20,7 +20,7 @@
                         <li><a href="/login" title="login"><i class="icon icon-enter"></i></a></li>
                     @endguest
                     @auth
-                        <li><a href="keranjang"><i class="icon icon-shopping-cart2"></i></a></li>
+                        <li><a href="/member/keranjang"><i class="icon icon-shopping-cart2"></i></a></li>
 
                         <li>
                             <form action="/logout" method="post">
@@ -45,14 +45,16 @@
                                     <span><a href="#">Pay online</a></span>
                                     <ul>
                                         <li><a href="pay-with-card-online/">Demo 1 - Filtering</a></li>
-                                        <li><a href="pay-with-card-online/order-2.php">Demo 2 - Sticky navigation</a></li>
+                                        <li><a href="pay-with-card-online/order-2.php">Demo 2 - Sticky navigation</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li>
                                     <span><a href="#">Pay with cash</a></span>
                                     <ul>
                                         <li><a href="pay-with-cash-on-delivery/">Demo 1 - Filtering</a></li>
-                                        <li><a href="pay-with-cash-on-delivery/order-2.php">Demo 2 - Sticky navigation</a></li>
+                                        <li><a href="pay-with-cash-on-delivery/order-2.php">Demo 2 - Sticky
+                                                navigation</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -64,6 +66,17 @@
                         @endcan
                         @can('member')
                             <li><span><a href="/member/profile">Profile</a></span></li>
+                            <li>
+                                <span><a href="#">Lihat Pemesanan<i class="fa fa-chevron-down"></i></a></span>
+                                <ul>
+                                    <li>
+                                        <a href="/member/pesanan-saya">Pesanan saat ini</a>
+                                    </li>
+                                    <li>
+                                        <a href="/member/riwayat-pemesanan">Riwayat Pemesanan</a>
+                                    </li>
+                                </ul>
+                            </li>
                         @endcan
                     </ul>
                 </nav>

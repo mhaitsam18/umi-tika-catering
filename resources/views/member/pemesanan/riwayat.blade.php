@@ -11,11 +11,11 @@
         <div class="container">
             <div class="main-title mb-3">
                 <span><em></em></span>
-                <h2 id="orderFood">Pesanan Saya</h2>
+                <h2 id="orderFood">Riwayat Pemesanan</h2>
             </div>
             <div class="card mb-3">
                 <div class="card-body">
-                    <h4>Pesanan Saat ini</h4>
+                    <h4>Riwayat Pemesanan Saya</h4>
                     <div class="container mt-5 mb-1" id="keranjang">
                         <table id="example" class="display" style="width:100%">
                             <thead>
@@ -48,7 +48,7 @@
     <script>
         var dataTable = $('#example').DataTable({
             "ajax": {
-                "url": "{{ route('get-pemesanan') }}", // Ganti dengan route yang sesuai
+                "url": "{{ route('get-riwayat') }}", // Ganti dengan route yang sesuai
                 "type": "GET",
             },
             "columns": [{

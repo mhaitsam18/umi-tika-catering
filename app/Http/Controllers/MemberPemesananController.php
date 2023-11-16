@@ -15,8 +15,47 @@ class MemberPemesananController extends Controller
     public function index()
     {
         return view('member.pemesanan.index', [
-            'title' => 'Umi Tika Catering | Keranjang',
+            'title' => 'Umi Tika Catering | Pesanan Saya',
+            'pemesanans' => Pemesanan::where('member_id', auth()->user()->member->id)->whereNotIn('status', ['selesai', 'batal'])->get(),
         ]);
+    }
+
+    public function getPemesananData()
+    {
+        $pemesanans = Pemesanan::where('member_id', auth()->user()->member->id)
+            ->whereNotIn('status', ['selesai', 'batal'])
+            ->get();
+
+        return response()->json(['data' => $pemesanans]);
+    }
+
+    public function getPemesananDetails($id)
+    {
+        $details = Item::where('pemesanan_id', $id)->get();
+
+        return response()->json($details);
+    }
+
+
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function riwayat()
+    {
+        return view('member.pemesanan.riwayat', [
+            'title' => 'Umi Tika Catering | Riwayat Pemesanan',
+            'pemesanans' => Pemesanan::where('member_id', auth()->user()->member->id)->whereIn('status', ['selesai', 'batal'])->get(),
+        ]);
+    }
+
+    public function getRiwayatData()
+    {
+        $pemesanans = Pemesanan::where('member_id', auth()->user()->member->id)
+            ->whereIn('status', ['selesai', 'batal'])
+            ->get();
+
+        return response()->json(['data' => $pemesanans]);
     }
 
     /**
