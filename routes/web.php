@@ -66,6 +66,7 @@ Route::middleware('auth')->group(function () {
             Route::get('/get-detail-pemesanan/{id}', [MemberPemesananController::class, 'getPemesananDetails']);
 
             Route::post('/testimoni', [MemberTestimoniController::class, 'store'])->name('member.testimoni.store');
+            Route::post('/pemesanan/testimoni', [MemberPemesananController::class, 'testimoni'])->name('member.pemesanan.testimoni');
             Route::get('/get-testimoni/{item}', [MemberTestimoniController::class, 'getTestimoniByItemId'])->name('get-testimoni');
 
 

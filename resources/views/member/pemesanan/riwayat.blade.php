@@ -47,9 +47,9 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <!-- Form untuk mengisi testimoni -->
-                    <form id="testimoniForm">
+                <form action="{{ route('member.testimoni.store') }}" method="post" id="testimoniForm">
+                    <div class="modal-body">
+                        <!-- Form untuk mengisi testimoni -->
                         @csrf
                         <div class="form-group">
                             <label for="testimoniTextarea">Testimoni:</label>
@@ -59,12 +59,13 @@
                         <!-- tambahkan input tersembunyi untuk menyimpan item_id atau informasi lain yang diperlukan -->
                         <input type="hidden" id="itemIdInput" name="item_id" value="">
                         <input type="hidden" id="memberIdInput" name="member_id" value="{{ auth()->user()->member->id }}">
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                    <button type="button" class="btn btn-primary" id="submitTestimoniBtn">Kirim</button>
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                        {{-- <button type="button" class="btn btn-primary" id="submitTestimoniBtn">Kirim</button> --}}
+                        <button type="submit" class="btn btn-primary">Kirim</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -164,7 +165,7 @@
         function format(data) {
             var html = '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
             html +=
-                '<tr><th>Paket</th><th>Menu</th><th>Jumlah</th><th>Harga Satuan</th><th>Sub Total</th><th>Aksi</th></tr>';
+                '<tr><th>Paket</th><th>Menu</th><th>Jumlah</th><th>Harga Satuan</th><th>Sub Total</th><th>Testimoni</th><th>Aksi</th></tr>';
             for (var i = 0; i < data.length; i++) {
                 var currentIndex = i;
 
@@ -174,12 +175,13 @@
                     '<td>' + data[i].jumlah + '</td>' +
                     '<td>' + data[i].harga_per_item + '</td>' +
                     '<td>' + data[i].harga_total + '</td>' +
+                    '<td>' + (data[i].testimoni || '') + '</td>' +
                     '<td>';
                 var testimoni = null;
                 testimoni = cekTestimoni(data[i].id);
 
                 console.log(testimoni); // bisa dibaca di sini
-                if (testimoni) {
+                if (data[i].testimoni) {
                     html += '<span class="text-success">Testimoni Dikirim</span>';
                 } else {
                     html +=
@@ -214,10 +216,22 @@
                 type: 'POST',
                 data: $('#testimoniForm').serialize(),
                 success: function(response) {
-                    // Tindakan setelah testimoni berhasil dikirim
-                    // ...
-                    // Sembunyikan modal setelah berhasil
                     $('#testimoniModal').modal('hide');
+                    console.log(response);
+                    if (response.success) {
+                        Swal.fire({
+                            title: 'Berhasil',
+                            text: response.success,
+                            icon: 'success'
+                        });
+
+                    } else if (response.error) {
+                        Swal.fire({
+                            title: 'Gagal',
+                            text: response.error,
+                            icon: 'error'
+                        });
+                    }
                 }
             });
         });

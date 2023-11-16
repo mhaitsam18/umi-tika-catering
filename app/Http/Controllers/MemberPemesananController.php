@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Item;
 use App\Models\Menu;
 use App\Models\Pemesanan;
+use App\Models\Testimoni;
 use Illuminate\Http\Request;
 
 class MemberPemesananController extends Controller
@@ -34,6 +35,30 @@ class MemberPemesananController extends Controller
         $details = Item::where('pemesanan_id', $id)->get();
 
         return response()->json($details);
+    }
+
+    function Testimoni(Request $request)
+    {
+        $check = Testimoni::where('item_id', $request->item_id)->first();
+        if ($check) {
+            return response()->json(['errror' => 'Testimoni Telah dikirim sebelumnya']);
+        }
+
+        $request->validate([
+            'item_id' => 'required|exists:item,id',
+            'testimoni' => 'required|string',
+        ]);
+
+        Testimoni::create([
+            'item_id' => $request->item_id,
+            'member_id' => auth()->user()->member->id, // Ganti dengan cara Anda mendapatkan ID member
+            'testimoni' => $request->testimoni,
+        ]);
+        Item::find($request->item_id)->update([
+            'testimoni' => $request->testimoni
+        ]);
+        // return response()->json(['success' => 'Testimoni Berhasil ditambahkan']);
+        return back()->with('success', 'Testimoni Berhasil ditambahkan');
     }
 
 

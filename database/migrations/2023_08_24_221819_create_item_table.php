@@ -24,6 +24,7 @@ return new class extends Migration
             $table->integer('jumlah')->nullable();
             $table->float('harga_per_item')->nullable();
             $table->float('harga_total')->nullable();
+            $table->string('testimoni')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

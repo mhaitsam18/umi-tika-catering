@@ -26,22 +26,26 @@ class MemberTestimoniController extends Controller
 
     public function store(Request $request)
     {
-        try {
-
-            $request->validate([
-                'item_id' => 'required|exists:item,id',
-                'testimoni' => 'required|string',
-            ]);
-
-            Testimoni::create([
-                'item_id' => $request->item_id,
-                'member_id' => auth()->user()->member->id, // Ganti dengan cara Anda mendapatkan ID member
-                'testimoni' => $request->testimoni,
-            ]);
-            return response()->json(['success' => true]);
-        } catch (\Exception $e) {
-            return response()->json(['error' => $e->getMessage()], 500);
+        $check = Testimoni::where('item_id', $request->item_id)->first();
+        if ($check) {
+            return response()->json(['errror' => 'Testimoni Telah dikirim sebelumnya']);
         }
+
+        $request->validate([
+            'item_id' => 'required|exists:item,id',
+            'testimoni' => 'required|string',
+        ]);
+
+        Testimoni::create([
+            'item_id' => $request->item_id,
+            'member_id' => auth()->user()->member->id, // Ganti dengan cara Anda mendapatkan ID member
+            'testimoni' => $request->testimoni,
+        ]);
+        Item::find($request->item_id)->update([
+            'testimoni' => $request->testimoni
+        ]);
+        // return response()->json(['success' => 'Testimoni Berhasil ditambahkan']);
+        return back()->with('success', 'Testimoni Berhasil ditambahkan');
     }
 
     public function getTestimoniByItemId(Item $item)
