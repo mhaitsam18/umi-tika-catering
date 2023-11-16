@@ -30,12 +30,13 @@ class HomeController extends Controller
     }
     public function testimoni()
     {
-        $latestTestimonis = Testimoni::select('member_id', DB::raw('MAX(created_at) as latest_testimoni'))
-            ->groupBy('member_id')
-            ->latest('latest_testimoni')
-            ->get();
+        // $latestTestimonis = Testimoni::select('member_id', DB::raw('MAX(created_at) as latest_testimoni'))
+        //     ->groupBy('member_id')
+        //     ->latest('latest_testimoni')
+        //     ->get();
 
-        $testimonis = Testimoni::whereIn('id', $latestTestimonis->pluck('id'))->get();
+        // $testimonis = Testimoni::whereIn('id', $latestTestimonis->pluck('id'))->get();
+        $testimonis = Testimoni::all();
 
         return view('home.testimoni', [
             'title' => 'Umi Tika Catering | Testimoni',

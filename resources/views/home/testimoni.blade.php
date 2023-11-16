@@ -15,11 +15,11 @@
                     @if ($testimonis->count() > 0)
                         <div class="row">
                             @foreach ($testimonis as $testimoni)
-                                <div class="card col-lg-4">
+                                <div class="card col-lg-4 mb-4">
                                     <div class="card-body">
-                                        <h5 class="card-title">{{ $testimoni->member->name }}</h5>
+                                        <h5 class="card-title">{{ $testimoni->member->user->name }}</h5>
                                         <h6 class="card-subtitle mb-2 text-muted">
-                                            {{ Carbon::parse($testimoni->created_at)->isoFormat('LL') }}</h6>
+                                            {{ Carbon::parse($testimoni->created_at)->isoFormat('LLL') }}</h6>
                                         <p class="card-text">{{ $testimoni->testimoni }}.</p>
                                     </div>
                                 </div>
