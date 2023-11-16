@@ -21,7 +21,7 @@
             </li>
             <li class="nav-item nav-category">Data User</li>
             <li class="nav-item">
-                <a href="/admin/admin" class="nav-link">
+                <a href="/admin/administrator" class="nav-link">
                     <i class="link-icon" data-feather="user-check"></i>
                     <span class="link-title">Data Admin</span>
                 </a>

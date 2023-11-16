@@ -30,6 +30,12 @@
                             </a>
                         </li>
                         <li class="dropdown-item py-2">
+                            <a href="/" class="text-body ms-0">
+                                <i class="me-2 icon-md" data-feather="globe"></i>
+                                <span>Halaman Web</span>
+                            </a>
+                        </li>
+                        <li class="dropdown-item py-2">
                             {{-- <form action="/logout" method="post">
                                 @csrf
                                 <button type="submit" class="text-body ms-0">

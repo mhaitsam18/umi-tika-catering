@@ -59,6 +59,9 @@
                         </li> --}}
                         <li><span><a href="/tentang-kami">Tentang Kami</a></span></li>
                         <li><span><a href="/testimoni">Testimoni</a></span></li>
+                        @can('admin')
+                            <li><span><a href="/admin/index">Dashboard Admin</a></span></li>
+                        @endcan
                         @can('member')
                             <li><span><a href="/member/profile">Profile</a></span></li>
                         @endcan

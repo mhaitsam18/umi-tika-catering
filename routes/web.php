@@ -48,11 +48,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/file/dokumen-delete', [FileController::class, 'dokumenDelete'])->name('dokumen-delete');
 
     Route::put('update-photo/{user}', [AuthController::class, 'updatePhoto'])->name('admin.psikolog-update-foto');
-    Route::middleware('admin')->group(function () {
-        Route::prefix('admin')->group(function () {
-            Route::get('index', [AdminController::class, 'index'])->name('admin.index');
-        });
-    });
     Route::middleware('member')->group(function () {
         Route::get('/catering', [HomeController::class, 'catering'])->name('home.catering');
         Route::prefix('member')->group(function () {
@@ -69,8 +64,11 @@ Route::middleware('auth')->group(function () {
     });
     Route::middleware('admin')->group(function () {
         Route::prefix('admin')->group(function () {
+            Route::get('/', [AdminController::class, 'index'])->name('admin');
+            Route::get('/index', [AdminController::class, 'index'])->name('admin.index');
             Route::get('/profile', [AdminController::class, 'profile'])->name('admin.profile');
             Route::get('/admin', [AdminUserController::class, 'admin'])->name('admin.user.admin');
+            Route::get('/administrator', [AdminUserController::class, 'admin'])->name('admin.user.administrator');
             Route::get('/member', [AdminUserController::class, 'member'])->name('admin.user.member');
             Route::resource('paket', AdminPaketController::class)->parameters([
                 'paket' => 'paket'
