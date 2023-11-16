@@ -17,7 +17,8 @@ class Item extends Model
 
     protected $with = [
         'pemesanan',
-        'menu'
+        'menu',
+        // 'testimoni',
     ];
 
     public function pemesanan()
@@ -32,6 +33,6 @@ class Item extends Model
 
     public function testimoni()
     {
-        return $this->hasOne(Testimoni::class);
+        return $this->hasOne(Testimoni::class, 'item_id', 'id');
     }
 }

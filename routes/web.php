@@ -11,6 +11,7 @@ use App\Http\Controllers\FileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\MemberPemesananController;
+use App\Http\Controllers\MemberTestimoniController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -63,6 +64,9 @@ Route::middleware('auth')->group(function () {
             Route::get('/get-pemesanan', [MemberPemesananController::class, 'getPemesananData'])->name('get-pemesanan');
             Route::get('/get-riwayat', [MemberPemesananController::class, 'getRiwayatData'])->name('get-riwayat');
             Route::get('/get-detail-pemesanan/{id}', [MemberPemesananController::class, 'getPemesananDetails']);
+
+            Route::post('/testimoni', [MemberTestimoniController::class, 'store'])->name('member.testimoni.store');
+            Route::get('/get-testimoni/{item}', [MemberTestimoniController::class, 'getTestimoniByItemId'])->name('get-testimoni');
 
 
             Route::get('/keranjang', [MemberPemesananController::class, 'keranjang'])->name('member.keranjang');

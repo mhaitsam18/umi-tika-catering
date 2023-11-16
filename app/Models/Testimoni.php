@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Testimoni extends Model
 {
     use HasFactory;
-    use HasFactory;
 
     protected $table = 'testimoni';
     protected $guarded = [
@@ -17,7 +16,7 @@ class Testimoni extends Model
 
     protected $with = [
         'member',
-        'pemesanan'
+        'item'
     ];
 
     public function member()
@@ -26,6 +25,6 @@ class Testimoni extends Model
     }
     public function item()
     {
-        return $this->belongsTo(Item::class);
+        return $this->belongsTo(Item::class, 'item_id', 'id');
     }
 }
