@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Item;
 use App\Models\Menu;
 use App\Models\Pemesanan;
 use Illuminate\Http\Request;
@@ -18,6 +19,16 @@ class MemberPemesananController extends Controller
         ]);
     }
 
+    /**
+     * Display a listing of the resource.
+     */
+    public function keranjang()
+    {
+        return view('member.pemesanan.keranjang', [
+            'title' => 'Umi Tika Catering | Keranjang',
+        ]);
+    }
+
     public function pilihMenu(Request $request)
     {
         $tanggal = $request->tanggal;
@@ -30,6 +41,61 @@ class MemberPemesananController extends Controller
                 ->orderByRaw("FIELD(waktu_makan, 'breakfast', 'lunch', 'dinner')")
                 ->get()
         ]);
+    }
+
+
+    public function checkout(Request $request)
+    {
+        // Validasi input
+        $request->validate([
+            'diskon' => 'nullable|numeric',
+            'bukti_bayar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:20480', // maksimum 20MB
+        ]);
+
+        // Ambil data keranjang dari session
+        $cart = session()->get('cart', []);
+
+        // Hitung total harga dan total harga diskon
+        $totalHarga = 0;
+        $totalHargaDiskon = 0;
+
+        foreach ($cart as $item) {
+            $totalHarga += $item['price'] * $item['quantity'];
+            $totalHargaDiskon += $item['price'] * $item['quantity'];
+        }
+
+        // Diskon
+        $diskon = $request->input('diskon', 0);
+
+        if ($diskon > 0 && $diskon <= 100) {
+            $totalHargaDiskon = $totalHargaDiskon - (($diskon / 100) * $totalHarga);
+        }
+
+        // Simpan data pemesanan
+        $pemesanan = Pemesanan::create([
+            'member_id' => auth()->user()->member->id,
+            'diskon' => $diskon,
+            'total_harga' => $totalHarga,
+            'harga_diskon' => $totalHargaDiskon,
+            'bukti_bayar' => $request->file('bukti_bayar') ? $request->file('bukti_bayar')->store('bukti-bayar') : null,
+            'status' => 'menunggu konfirmasi',
+        ]);
+
+        // Simpan data item
+        foreach ($cart as $item) {
+            Item::create([
+                'pemesanan_id' => $pemesanan->id,
+                'menu_id' => $item['menu_id'],
+                'jumlah' => $item['quantity'],
+                'harga_per_item' => $item['price'],
+                'harga_total' => $item['price'] * $item['quantity'],
+            ]);
+        }
+
+        // Kosongkan keranjang
+        session()->forget('cart');
+
+        return redirect()->route('member.pemesanan.index')->with('success', 'Pemesanan berhasil diproses. Terima kasih!');
     }
 
     public function addToCart(Request $request)

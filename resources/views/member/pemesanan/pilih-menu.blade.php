@@ -107,7 +107,7 @@
                                     <!-- Gunakan offset untuk membuat kolom kosong di sisi kiri -->
                                     <div class="float-right">
                                         <strong>Total Harga: Rp.{{ number_format($totalHarga, 2, ',', '.') }}</strong>
-                                        <button type="submit" class="btn btn-primary">Checkout</button>
+                                        <a href="/member/keranjang" class="btn btn-primary">Checkout</a>
                                     </div>
                                 </div>
                             </div>

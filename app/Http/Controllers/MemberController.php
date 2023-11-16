@@ -48,4 +48,18 @@ class MemberController extends Controller
 
         return back()->with('success', 'Profile diperbarui');
     }
+    public function updateMember(Request $request)
+    {
+        $request->validate([
+            'alamat_kirim' => 'required',
+            'nomor_wa' => ['required', 'string', 'regex:/^(?:\+62|0)[0-9\s-]+$/'],
+        ]);
+
+        Member::find($request->member_id)->update([
+            'alamat_kirim' => $request->alamat_kirim,
+            'nomor_wa' => $request->nomor_wa
+        ]);
+
+        return back()->with('success', 'Nomor WhatsApp dan Alamat Kirim diperbarui');
+    }
 }
