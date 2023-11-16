@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use App\Models\Member;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminUserController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      */
@@ -53,10 +55,28 @@ class AdminUserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        //
+        $imagePath = $request->hasFile('image') ? $request->file('image')->store('foto-profil') : null;
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'image' => $imagePath,
+            'role' => $request->role,
+        ]);
+
+        if ($request->role == 'member') {
+            Member::create([
+                'user_id' => $user->id,
+                'alamat_kirim' => $request->alamat_kirim,
+                'nomor_wa' => $request->nomor_wa,
+            ]);
+        }
+
+        return back()->with('success', 'Data User ditambahkan');
     }
+
 
     /**
      * Display the specified resource.
@@ -79,7 +99,42 @@ class AdminUserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $validate = [
+            'email' => 'required|email|unique:users,email,' . $user->id,
+            'name' => 'required|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:20480',
+            'role' => 'required',
+        ];
+
+        if ($request->role == 'member') {
+            $validate += [
+                'alamat_kirim' => 'required',
+                'nomor_wa' => ['required', 'string', 'regex:/^(?:\+62|0)[0-9\s-]+$/'],
+            ];
+        }
+
+        $request->validate($validate);
+
+        $image = $user->image;
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('foto-profil');
+            $image = $path;
+        }
+
+        $user->update([
+            'email' => $request->email,
+            'name' => $request->name,
+            'image' => $image,
+        ]);
+
+        if ($request->role == 'member') {
+            $user->member->update([
+                'alamat_kirim' => $request->alamat_kirim,
+                'nomor_wa' => $request->nomor_wa,
+            ]);
+        }
+
+        return back()->with('success', 'Data User diperbarui');
     }
 
     /**

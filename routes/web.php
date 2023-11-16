@@ -69,6 +69,11 @@ Route::middleware('auth')->group(function () {
             Route::get('/profile', [AdminController::class, 'profile'])->name('admin.profile');
             Route::get('/admin', [AdminUserController::class, 'admin'])->name('admin.user.admin');
             Route::get('/administrator', [AdminUserController::class, 'admin'])->name('admin.user.administrator');
+
+            Route::get('/administrator', [AdminUserController::class, 'admin'])->name('admin.user.administrator');
+
+            Route::resource('user', AdminUserController::class);
+
             Route::get('/member', [AdminUserController::class, 'member'])->name('admin.user.member');
             Route::resource('paket', AdminPaketController::class)->parameters([
                 'paket' => 'paket'

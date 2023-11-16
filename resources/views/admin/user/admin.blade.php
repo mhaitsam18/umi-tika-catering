@@ -56,10 +56,10 @@
                                                     <a href="#" class="badge bg-success d-inline-block editButton"
                                                         data-bs-toggle="modal" data-bs-target="#editModal"
                                                         data-id="{{ $admin->id }}" data-name="{{ $admin->name }}"
-                                                        data-email="{{ $admin->email }}"
+                                                        data-email="{{ $admin->email }}" data-role="{{ $admin->role }}"
                                                         data-image="{{ $admin->image }}">Edit</a>
 
-                                                    <form action="/admin/admin/{{ $admin->id }}" method="post"
+                                                    <form action="/admin/user/{{ $admin->id }}" method="post"
                                                         class="d-inline-block">
                                                         @method('delete')
                                                         @csrf
@@ -91,8 +91,9 @@
                     <h1 class="modal-title fs-5" id="addModalLabel">Tambah Admin</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="/admin/admin" method="post" enctype="multipart/form-data">
+                <form action="/admin/user" method="post" enctype="multipart/form-data">
                     @csrf
+                    <input type="hidden" name="role" id="role" value="admin">
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="name" class="form-label">Nama Lengkap</label>
@@ -141,11 +142,12 @@
                     <h1 class="modal-title fs-5" id="editModalLabel">Ubah Admin</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="/admin/admin/" method="post" enctype="multipart/form-data" id="formEdit">
+                <form action="/admin/user/" method="post" enctype="multipart/form-data" id="formEdit">
                     @csrf
                     @method('put')
                     <div class="modal-body">
                         <input type="hidden" name="id" id="id" value="">
+                        <input type="hidden" name="role" id="role" value="admin">
                         <div class="mb-3">
                             <label for="name" class="form-label">Nama Lengkap</label>
                             <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
@@ -172,6 +174,11 @@
                             <input type="file" name="image"
                                 class="form-control @error('image') is-invalid @enderror" id="image"
                                 value="{{ old('image') }}">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <img id="image-preview" src="" alt="Preview" class="img-thumbnail mt-2">
+                                </div>
+                            </div>
                             @error('image')
                                 <div class="text-danger fs-6">
                                     {{ $message }}
@@ -195,19 +202,45 @@
         $(document).on("click", ".editButton", function() {
             var id = $(this).data('id');
             $(".modal-body  #id").val(id);
-            $("#formEdit").attr("action", "/admin/admin/" + id);
+            $("#formEdit").attr("action", "/admin/user/" + id);
 
             var name = $(this).data('name');
             $(".modal-body  #name").val(name);
             var email = $(this).data('email');
             $(".modal-body  #email").val(email);
             var image = $(this).data('image');
-            $(".modal-body  #image").val(image);
+            $(".modal-body #image-preview").attr("src", "{{ asset('storage/') }}" + "/" + image);
+
+            // var image = $(this).data('image');
+            // $(".modal-body  #image").val(image);
+            var role = $(this).data('role');
+            $(".modal-body  #role").val(role);
         });
         $(document).on("click", "#addButton", function() {
             $(".modal-body textarea").val(''); // Mengosongkan nilai pada elemen textarea
             $(".modal-body input").val(''); // Mengosongkan nilai pada elemen input
             $(".modal-body select").val(''); // Mengosongkan nilai pada elemen select option
+            $(".modal-body  #role").val('admin');
+        });
+        $(document).ready(function() {
+            // Menggunakan on() untuk menangani perubahan input file di dalam modal
+            $(document).on("change", "#image", function() {
+                readURL(this);
+            });
+
+            // Fungsi untuk membaca URL gambar dan mengganti gambar pratinjau
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        $("#image-preview").attr("src", e.target.result);
+                    };
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
         });
     </script>
+    <!-- Letakkan ini di dalam tag <script> atau file JavaScript terpisah-- >
 @endsection

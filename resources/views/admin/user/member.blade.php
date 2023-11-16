@@ -61,14 +61,17 @@
                                                         class="badge bg-primary d-inline-block">Detail</a>
                                                     <a href="#" class="badge bg-success d-inline-block editButton"
                                                         data-bs-toggle="modal" data-bs-target="#editModal"
-                                                        data-id="{{ $member->id }}" data-name="{{ $member->user->name }}"
+                                                        data-id="{{ $member->user->id }}"
+                                                        data-name="{{ $member->user->name }}"
                                                         data-user_id="{{ $member->user_id }}"
+                                                        data-member_id="{{ $member->id }}"
                                                         data-email="{{ $member->user->email }}"
                                                         data-image="{{ $member->user->image }}"
+                                                        data-role="{{ $member->user->role }}"
                                                         data-alamat_kirim="{{ $member->alamat_kirim }}"
                                                         data-nomor_wa="{{ $member->nomor_wa }}">Edit</a>
 
-                                                    <form action="/member/member/{{ $member->id }}" method="post"
+                                                    <form action="/admin/user/{{ $member->id }}" method="post"
                                                         class="d-inline-block">
                                                         @method('delete')
                                                         @csrf
@@ -100,8 +103,9 @@
                     <h1 class="modal-title fs-5" id="addModalLabel">Tambah Member</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="/member/member" method="post" enctype="multipart/form-data">
+                <form action="/admin/user" method="post" enctype="multipart/form-data">
                     @csrf
+                    <input type="hidden" name="role" id="role" value="member">
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="name" class="form-label">Nama Lengkap</label>
@@ -173,12 +177,14 @@
                     <h1 class="modal-title fs-5" id="editModalLabel">Ubah Member</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="/member/member/" method="post" enctype="multipart/form-data" id="formEdit">
+                <form action="/admin/user/" method="post" enctype="multipart/form-data" id="formEdit">
                     @csrf
                     @method('put')
                     <div class="modal-body">
                         <input type="hidden" name="id" id="id" value="">
+                        <input type="hidden" name="member_id" id="member_id" value="">
                         <input type="hidden" name="user_id" id="user_id" value="">
+                        <input type="hidden" name="role" id="role" value="member">
                         <div class="mb-3">
                             <label for="name" class="form-label">Nama Lengkap</label>
                             <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
@@ -205,6 +211,11 @@
                             <input type="file" name="image"
                                 class="form-control @error('image') is-invalid @enderror" id="image"
                                 value="{{ old('image') }}">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <img id="image-preview" src="" alt="Preview" class="img-thumbnail mt-2">
+                                </div>
+                            </div>
                             @error('image')
                                 <div class="text-danger fs-6">
                                     {{ $message }}
@@ -252,14 +263,21 @@
             $(".modal-body  #id").val(id);
             var user_id = $(this).data('user_id');
             $(".modal-body  #user_id").val(user_id);
-            $("#formEdit").attr("action", "/member/member/" + id);
+            var member_id = $(this).data('member_id');
+            $(".modal-body  #member_id").val(member_id);
+            $("#formEdit").attr("action", "/admin/user/" + id);
 
             var name = $(this).data('name');
             $(".modal-body  #name").val(name);
             var email = $(this).data('email');
             $(".modal-body  #email").val(email);
             var image = $(this).data('image');
-            $(".modal-body  #image").val(image);
+            $(".modal-body #image-preview").attr("src", "{{ asset('storage/') }}" + "/" + image);
+
+            // var image = $(this).data('image');
+            // $(".modal-body  #image").val(image);
+            var role = $(this).data('role');
+            $(".modal-body  #role").val(role);
             var alamat_kirim = $(this).data('alamat_kirim');
             $(".modal-body  #alamat_kirim").val(alamat_kirim);
             var nomor_wa = $(this).data('nomor_wa');
@@ -269,6 +287,27 @@
             $(".modal-body textarea").val(''); // Mengosongkan nilai pada elemen textarea
             $(".modal-body input").val(''); // Mengosongkan nilai pada elemen input
             $(".modal-body select").val(''); // Mengosongkan nilai pada elemen select option
+            $(".modal-body  #role").val('member');
+        });
+
+        $(document).ready(function() {
+            // Menggunakan on() untuk menangani perubahan input file di dalam modal
+            $(document).on("change", "#image", function() {
+                readURL(this);
+            });
+
+            // Fungsi untuk membaca URL gambar dan mengganti gambar pratinjau
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        $("#image-preview").attr("src", e.target.result);
+                    };
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
         });
     </script>
 @endsection
