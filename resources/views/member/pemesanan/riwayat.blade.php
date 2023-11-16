@@ -108,12 +108,29 @@
             }
         });
 
+        function cekTestimoni(itemId) {
+            var testimoni = null;
+            if (itemId) {
+                $.ajax({
+                    url: "/member/get-testimoni/" + itemId,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(response) {
+                        if (response.testimoni && response.testimoni.testimoni) {
+                            testimoni = response.testimoni;
+                            console.log(testimoni); //saya ingin data testimoni di sini,
+                            return testimoni;
+                        }
+                    }
+                });
+            }
+        }
+
         function format(data) {
             var html = '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
             html +=
                 '<tr><th>Paket</th><th>Menu</th><th>Jumlah</th><th>Harga Satuan</th><th>Sub Total</th><th>Aksi</th></tr>';
             for (var i = 0; i < data.length; i++) {
-                // Simpan nilai i ke dalam variabel untuk diakses dalam fungsi AJAX
                 var currentIndex = i;
 
                 html += '<tr>' +
@@ -123,29 +140,16 @@
                     '<td>' + data[i].harga_per_item + '</td>' +
                     '<td>' + data[i].harga_total + '</td>' +
                     '<td>';
-
                 var testimoni = null;
-                if (data[currentIndex].id) {
-                    $.ajax({
-                        url: "/member/get-testimoni/" + data[currentIndex].id,
-                        type: 'GET',
-                        dataType: 'json',
-                        // Gunakan currentIndex di sini
-                        success: function(response) {
-                            if (response.testimoni && response.testimoni.testimoni) {
-                                testimoni = response.testimoni;
-                                console.log(testimoni);
-                            }
-                        }
-                    });
-                }
-                console.log(testimoni);
+                testimoni = cekTestimoni(data[i].id);
+
+                console.log(testimoni); // bisa dibaca di sini
                 if (testimoni) {
                     html += '<span class="text-success">Testimoni Dikirim</span>';
                 } else {
                     html +=
                         '<button class="btn btn-primary btn-sm testimoni-btn" data-toggle="modal" data-target="#testimoniModal" data-item_id="' +
-                        data[currentIndex].id + '">Isi Testimoni</button>';
+                        data[i].id + '">Isi Testimoni</button>';
 
                 }
 
