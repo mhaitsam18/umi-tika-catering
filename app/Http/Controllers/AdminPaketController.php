@@ -24,7 +24,10 @@ class AdminPaketController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.paket.create', [
+            'title' => 'Umi Tika Catering | Tambah Paket',
+            'page' => 'paket'
+        ]);
     }
 
     /**
@@ -32,7 +35,17 @@ class AdminPaketController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama_paket' => 'required',
+            'harga' => 'required|numeric'
+        ]);
+
+        Paket::create([
+            'nama_paket' => $request->nama_paket,
+            'harga' => $request->harga
+        ]);
+
+        return back()->with('success', 'Paket berhasil ditambahkan');
     }
 
     /**
@@ -40,7 +53,11 @@ class AdminPaketController extends Controller
      */
     public function show(Paket $paket)
     {
-        //
+        return view('admin.paket.show', [
+            'title' => 'Umi Tika Catering | Detail Paket',
+            'page' => 'paket',
+            'paket' => $paket
+        ]);
     }
 
     /**
@@ -48,7 +65,11 @@ class AdminPaketController extends Controller
      */
     public function edit(Paket $paket)
     {
-        //
+        return view('admin.paket.edit', [
+            'title' => 'Umi Tika Catering | Edit Paket',
+            'page' => 'paket',
+            'paket' => $paket
+        ]);
     }
 
     /**
@@ -56,7 +77,17 @@ class AdminPaketController extends Controller
      */
     public function update(Request $request, Paket $paket)
     {
-        //
+        $request->validate([
+            'nama_paket' => 'required',
+            'harga' => 'required|numeric'
+        ]);
+
+        $paket->update([
+            'nama_paket' => $request->nama_paket,
+            'harga' => $request->harga
+        ]);
+
+        return back()->with('success', 'Paket berhasil diperbarui');
     }
 
     /**
@@ -64,6 +95,8 @@ class AdminPaketController extends Controller
      */
     public function destroy(Paket $paket)
     {
-        //
+        $paket->delete();
+
+        return back()->with('success', 'Paket berhasil dihapus');
     }
 }
