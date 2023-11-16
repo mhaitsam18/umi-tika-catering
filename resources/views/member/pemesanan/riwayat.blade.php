@@ -35,6 +35,41 @@
     </div>
 @endsection
 
+@section('modal')
+    <!-- Modal Testimoni -->
+    <div class="modal fade" id="testimoniModal" tabindex="-1" role="dialog" aria-labelledby="testimoniModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="testimoniModalLabel">Isi Testimoni</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Form untuk mengisi testimoni -->
+                    <form id="testimoniForm">
+                        @csrf
+                        <div class="form-group">
+                            <label for="testimoniTextarea">Testimoni:</label>
+                            <textarea class="form-control" id="testimoniTextarea" rows="3" name="testimoni" placeholder="isi testimoni..."></textarea>
+                            <hr>
+                        </div>
+                        <!-- tambahkan input tersembunyi untuk menyimpan item_id atau informasi lain yang diperlukan -->
+                        <input type="hidden" id="itemIdInput" name="item_id" value="">
+                        <input type="hidden" id="memberIdInput" name="member_id" value="{{ auth()->user()->member->id }}">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-primary" id="submitTestimoniBtn">Kirim</button>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+
 @section('script')
     {{-- <script src="https://code.jquery.com/jquery-3.7.0.js"></script> --}}
     <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
@@ -158,10 +193,7 @@
             html += '</table>';
             return html;
         }
-    </script>
 
-
-    <script>
         // Tangani klik tombol "Isi Testimoni" di dalam modal
         $('#example tbody').on('click', 'button.testimoni-btn', function() {
             var data = dataTable.row($(this).parents('tr')).data();
@@ -190,39 +222,4 @@
             });
         });
     </script>
-@endsection
-
-@section('modal')
-    <!-- Modal Testimoni -->
-    <div class="modal fade" id="testimoniModal" tabindex="-1" role="dialog" aria-labelledby="testimoniModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="testimoniModalLabel">Isi Testimoni</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <!-- Form untuk mengisi testimoni -->
-                    <form id="testimoniForm">
-                        @csrf
-                        <div class="form-group">
-                            <label for="testimoniTextarea">Testimoni:</label>
-                            <textarea class="form-control" id="testimoniTextarea" rows="3" name="testimoni" placeholder="isi testimoni..."></textarea>
-                            <hr>
-                        </div>
-                        <!-- tambahkan input tersembunyi untuk menyimpan item_id atau informasi lain yang diperlukan -->
-                        <input type="hidden" id="itemIdInput" name="item_id" value="">
-                        <input type="hidden" id="memberIdInput" name="member_id" value="{{ auth()->user()->member->id }}">
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                    <button type="button" class="btn btn-primary" id="submitTestimoniBtn">Kirim</button>
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection
