@@ -70,7 +70,7 @@
                             <div class="card" style="width: 18rem;">
                                 <div class="card-body">
                                     <h5 class="card-title">Viona</h5>
-                                    <h6 class="card-subtitle mb-2 text-body-secondary">Paket Healthy</h6>
+                                    <h6 class="card-subtitle mb-2 text-body-secondary">Paket Healthy 06:00 - 08:00</h6>
                                     <p class="card-text">Jl. Suryalaya XIII No.11, Cijagra, Kec. Lengkong, Kota Bandung,
                                         Jawa Barat 40265
                                     </p>
@@ -82,7 +82,7 @@
                             <div class="card" style="width: 18rem;">
                                 <div class="card-body">
                                     <h5 class="card-title">Dio</h5>
-                                    <h6 class="card-subtitle mb-2 text-body-secondary">Paket Healthy</h6>
+                                    <h6 class="card-subtitle mb-2 text-body-secondary">Paket Healthy 06:00 - 08:00</h6>
                                     <p class="card-text">Jl. Suryalaya XIII No.11, Cijagra, Kec. Lengkong, Kota Bandung,
                                         Jawa Barat 40265
                                     </p>
@@ -94,7 +94,7 @@
                             <div class="card" style="width: 18rem;">
                                 <div class="card-body">
                                     <h5 class="card-title">Alwi</h5>
-                                    <h6 class="card-subtitle mb-2 text-body-secondary">Paket Healthy</h6>
+                                    <h6 class="card-subtitle mb-2 text-body-secondary">Paket Healthy 06:00 - 08:00</h6>
                                     <p class="card-text">Jl. Suryalaya XIII No.11, Cijagra, Kec. Lengkong, Kota Bandung,
                                         Jawa Barat 40265
                                     </p>
@@ -111,7 +111,7 @@
                             <div class="card" style="width: 18rem;">
                                 <div class="card-body">
                                     <h5 class="card-title">Viona</h5>
-                                    <h6 class="card-subtitle mb-2 text-body-secondary">Paket Healthy</h6>
+                                    <h6 class="card-subtitle mb-2 text-body-secondary">Paket Healthy 10:00 - 12:00</h6>
                                     <p class="card-text">Jl. Suryalaya XIII No.11, Cijagra, Kec. Lengkong, Kota Bandung,
                                         Jawa Barat 40265
                                     </p>
@@ -123,7 +123,7 @@
                             <div class="card" style="width: 18rem;">
                                 <div class="card-body">
                                     <h5 class="card-title">Dio</h5>
-                                    <h6 class="card-subtitle mb-2 text-body-secondary">Paket Healthy</h6>
+                                    <h6 class="card-subtitle mb-2 text-body-secondary">Paket Healthy 10:00 - 12:00</h6>
                                     <p class="card-text">Jl. Suryalaya XIII No.11, Cijagra, Kec. Lengkong, Kota Bandung,
                                         Jawa Barat 40265
                                     </p>
@@ -135,7 +135,7 @@
                             <div class="card" style="width: 18rem;">
                                 <div class="card-body">
                                     <h5 class="card-title">Alwi</h5>
-                                    <h6 class="card-subtitle mb-2 text-body-secondary">Paket Healthy</h6>
+                                    <h6 class="card-subtitle mb-2 text-body-secondary">Paket Healthy 10:00 - 12:00</h6>
                                     <p class="card-text">Jl. Suryalaya XIII No.11, Cijagra, Kec. Lengkong, Kota Bandung,
                                         Jawa Barat 40265
                                     </p>
@@ -151,7 +151,7 @@
                             <div class="card" style="width: 18rem;">
                                 <div class="card-body">
                                     <h5 class="card-title">Viona</h5>
-                                    <h6 class="card-subtitle mb-2 text-body-secondary">Paket Healthy</h6>
+                                    <h6 class="card-subtitle mb-2 text-body-secondary">Paket Healthy 17:00 - 19:00</h6>
                                     <p class="card-text">Jl. Suryalaya XIII No.11, Cijagra, Kec. Lengkong, Kota Bandung,
                                         Jawa Barat 40265
                                     </p>
@@ -163,7 +163,7 @@
                             <div class="card" style="width: 18rem;">
                                 <div class="card-body">
                                     <h5 class="card-title">Dio</h5>
-                                    <h6 class="card-subtitle mb-2 text-body-secondary">Paket Healthy</h6>
+                                    <h6 class="card-subtitle mb-2 text-body-secondary">Paket Healthy 17:00 - 19:00</h6>
                                     <p class="card-text">Jl. Suryalaya XIII No.11, Cijagra, Kec. Lengkong, Kota Bandung,
                                         Jawa Barat 40265
                                     </p>
@@ -175,7 +175,7 @@
                             <div class="card" style="width: 18rem;">
                                 <div class="card-body">
                                     <h5 class="card-title">Alwi</h5>
-                                    <h6 class="card-subtitle mb-2 text-body-secondary">Paket Healthy</h6>
+                                    <h6 class="card-subtitle mb-2 text-body-secondary">Paket Healthy 17:00 - 19:00</h6>
                                     <p class="card-text">Jl. Suryalaya XIII No.11, Cijagra, Kec. Lengkong, Kota Bandung,
                                         Jawa Barat 40265
                                     </p>
