@@ -112,11 +112,14 @@
         function format(data) {
             // Ubah ini sesuai dengan tampilan detail yang Anda inginkan
             var html = '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
-            html += '<tr><th>Paket</th><th>Menu</th><th>Jumlah</th><th>Harga Satuan</th><th>Sub Total</th></tr>'
+            html +=
+                '<tr><th>Paket</th><th>Menu</th><th>Tanggal Kirim</th><th>Waktu Kirim</th><th>Jumlah</th><th>Harga Satuan</th><th>Sub Total</th></tr>'
             for (var i = 0; i < data.length; i++) {
                 html += '<tr>' +
                     '<td>' + data[i].menu.paket.nama_paket + '</td>' +
                     '<td>' + data[i].menu.menu + '</td>' +
+                    '<td>' + moment(data[i].menu.tanggal).format('LL') + '</td>' +
+                    '<td>' + data[i].menu.waktu_makan + '</td>' +
                     '<td>' + data[i].jumlah + '</td>' +
                     '<td>' + data[i].harga_per_item + '</td>' +
                     '<td>' + data[i].harga_total + '</td>' +
