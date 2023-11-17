@@ -46,7 +46,7 @@
                                             <th class="pt-0">Harga per Item</th>
                                             <th class="pt-0">Harga Total</th>
                                             <th class="pt-0">Testimoni</th>
-                                            {{-- <th class="pt-0">Aksi</th> --}}
+                                            <th class="pt-0">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -61,7 +61,7 @@
                                                 <td>{{ $item->harga_per_item }}</td>
                                                 <td>{{ $item->harga_total }}</td>
                                                 <td>{{ $item->testimoni }}</td>
-                                                {{-- <td>
+                                                <td>
                                                     <a href="#" class="badge bg-success d-inline-block editButton"
                                                         data-bs-toggle="modal" data-bs-target="#editModal"
                                                         data-id="{{ $item->id }}"
@@ -79,7 +79,7 @@
                                                             class="badge bg-danger d-inline-block ms-2 mb-1 badge-a tombol-hapus"
                                                             style="border: none; cursor: pointer;">Hapus</button>
                                                     </form>
-                                                </td> --}}
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>

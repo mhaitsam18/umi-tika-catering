@@ -100,7 +100,11 @@ Route::middleware('auth')->group(function () {
                 'menu' => 'menu'
             ]);
             Route::get('/pemesanan-pembayaran', [AdminPemesananController::class, 'index'])->name('admin.pemesanan.index');
+            Route::put('/pemesanan/{pemesanan}', [AdminPemesananController::class, 'update'])->name('admin.pemesanan.update');
             Route::get('/item/{pemesanan}', [AdminItemController::class, 'index'])->name('admin.item.index');
+            Route::post('/item', [AdminItemController::class, 'store'])->name('admin.item.store');
+            Route::put('/item/{item}', [AdminItemController::class, 'update'])->name('admin.item.update');
+            Route::delete('/item/{item}', [AdminItemController::class, 'destroy'])->name('admin.item.delete');
         });
     });
 });

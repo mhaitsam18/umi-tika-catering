@@ -57,8 +57,8 @@
                                                 <td>{{ $member->alamat_kirim }}</td>
                                                 <td>{{ $member->nomor_wa }}</td>
                                                 <td>
-                                                    <a href="/admin/member/{{ $member->id }}"
-                                                        class="badge bg-primary d-inline-block">Detail</a>
+                                                    {{-- <a href="/admin/member/{{ $member->id }}"
+                                                        class="badge bg-primary d-inline-block">Detail</a> --}}
                                                     <a href="#" class="badge bg-success d-inline-block editButton"
                                                         data-bs-toggle="modal" data-bs-target="#editModal"
                                                         data-id="{{ $member->user->id }}"

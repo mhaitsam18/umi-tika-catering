@@ -18,7 +18,7 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-baseline mb-4 mb-md-3">
                         <h6 class="card-title mb-0">{{ $title }}</h6>
-                        <div class="dropdown">
+                        {{-- <div class="dropdown">
                             <button class="btn p-0" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
                                 <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
@@ -29,7 +29,7 @@
                                         class="icon-sm me-2"></i> <span class="">Tambah
                                         Pemesanan</span></a>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="row align-items-start">
                         <div class="col-md-12">
@@ -62,23 +62,23 @@
                                                         data-total_harga="{{ $pemesanan->total_harga }}"
                                                         data-harga_diskon="{{ $pemesanan->harga_diskon }}"
                                                         data-bukti_bayar="{{ $pemesanan->bukti_bayar }}"
-                                                        data-status="{{ $pemesanan->status }}">Edit</a>
+                                                        data-status="{{ $pemesanan->status }}">Edit Status</a>
 
-                                                    <a href="/admin/pemesanan/{{ $pemesanan->id }}"
+                                                    <a href="/admin/item/{{ $pemesanan->id }}"
                                                         class="badge bg-primary d-inline-block">Detail
                                                         Pesanan</a>
                                                     <a href="#" class="badge bg-info d-inline-block buktiBayar"
                                                         data-bukti_bayar="{{ $pemesanan->bukti_bayar }}">Lihat Bukti
                                                         Bayar</a>
 
-                                                    <form action="/admin/pemesanan/{{ $pemesanan->id }}" method="post"
+                                                    {{-- <form action="/admin/pemesanan/{{ $pemesanan->id }}" method="post"
                                                         class="d-inline-block">
                                                         @method('delete')
                                                         @csrf
                                                         <button type="submit"
                                                             class="badge bg-danger d-inline-block ms-2 mb-1 badge-a tombol-hapus"
                                                             style="border: none; cursor: pointer;">Hapus</button>
-                                                    </form>
+                                                    </form> --}}
                                                 </td>
 
                                             </tr>
@@ -156,9 +156,10 @@
                         </div>
                         <div class="mb-3">
                             <label for="status" class="form-label">Status</label>
-                            <select name="status" class="form-select @error('status') is-invalid @enderror"
-                                id="status">
+                            <select name="status" class="form-select @error('status') is-invalid @enderror" id="status">
                                 <option value="" selected disabled>Pilih Status</option>
+                                <option value="menunggu konfirmasi" @selected('menunggu konfirmasi' == old('status'))>Menunggu Konfirmasi
+                                </option>
                                 <option value="proses" @selected('proses' == old('status'))>Proses</option>
                                 <option value="selesai" @selected('selesai' == old('status'))>Selesai</option>
                                 <option value="batal" @selected('batal' == old('status'))>Batal</option>
@@ -203,7 +204,7 @@
                     <div class="modal-body">
                         <input type="hidden" name="id" id="id" value="">
 
-                        <div class="mb-3">
+                        {{-- <div class="mb-3">
                             <label for="member_id" class="form-label">Member</label>
                             <select name="member_id" class="form-select @error('member_id') is-invalid @enderror"
                                 id="member_id">
@@ -251,12 +252,14 @@
                                     {{ $message }}
                                 </div>
                             @enderror
-                        </div>
+                        </div> --}}
                         <div class="mb-3">
                             <label for="status" class="form-label">Status</label>
                             <select name="status" class="form-select @error('status') is-invalid @enderror"
                                 id="status">
                                 <option value="" selected disabled>Pilih Status</option>
+                                <option value="menunggu konfirmasi" @selected('menunggu konfirmasi' == old('status'))>Menunggu Konfirmasi
+                                </option>
                                 <option value="proses" @selected('proses' == old('status'))>Proses</option>
                                 <option value="selesai" @selected('selesai' == old('status'))>Selesai</option>
                                 <option value="batal" @selected('batal' == old('status'))>Batal</option>
@@ -267,7 +270,7 @@
                                 </div>
                             @enderror
                         </div>
-                        <div class="mb-3">
+                        {{-- <div class="mb-3">
                             <label for="bukti_bayar" class="form-label">Bukti Bayar</label>
                             <input type="file" name="bukti_bayar"
                                 class="form-control @error('bukti_bayar') is-invalid @enderror" id="bukti_bayar"
@@ -277,13 +280,28 @@
                                     {{ $message }}
                                 </div>
                             @enderror
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap modal for displaying the image -->
+    <div class="modal fade" id="buktiBayarModal" tabindex="-1" role="dialog" aria-labelledby="buktiBayarModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="buktiBayarModalLabel">Bukti Bayar</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img id="buktiBayarImage" src="" alt="Bukti Bayar" class="img-fluid img-thumbnail">
+                </div>
             </div>
         </div>
     </div>
@@ -314,6 +332,21 @@
             $(".modal-body textarea").val(''); // Mengosongkan nilai pada elemen textarea
             $(".modal-body input").val(''); // Mengosongkan nilai pada elemen input
             $(".modal-body select").val(''); // Mengosongkan nilai pada elemen select option
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            // Click event for the "Lihat Bukti Bayar" button
+            $('.buktiBayar').on('click', function() {
+                // Get the bukti_bayar value from the data attribute
+                var buktiBayar = $(this).data('bukti_bayar');
+
+                // Update the src attribute of the image element
+                $('#buktiBayarImage').attr('src', "{{ asset('storage/') }}" + '/' + buktiBayar);
+
+                // Show the modal
+                $('#buktiBayarModal').modal('show');
+            });
         });
     </script>
 @endsection
