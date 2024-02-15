@@ -1786,7 +1786,7 @@ input.qtyminus, input.qtyplus {
 	position: absolute;
 	width: 32px;
 	height: 22px;
-	border: none;
+	/* border: none; */
 	outline: none;
 	cursor: pointer;
 	-webkit-appearance: none;
@@ -2028,7 +2028,7 @@ input.form-control, select.form-control, textarea.form-control {
 	-moz-appearance: none;
 	appearance: none;
 	background: transparent;
-	border: none;
+	/* border: none; */
 	border-radius: 0;
 	-webkit-box-shadow: none;
 	box-shadow: none;
@@ -2036,7 +2036,7 @@ input.form-control, select.form-control, textarea.form-control {
 	height: 45px;
 	font-size: 14px;
 	font-weight: 400;
-	padding: 0;
+	/* padding: 0; */
 	resize: none;
 }
 
@@ -2052,7 +2052,7 @@ input.form-control:focus, textarea.form-control:focus {
 }
 
 input.form-control:disabled {
-	border: none;
+	/* border: none; */
 }
 
 .total {
